@@ -14,23 +14,24 @@
   <a href="https://www.linkedin.com/in/shashank-mishra-015a2b116">
     <img src="https://img.shields.io/badge/LinkedIn-Profile-blue?style=flat&logo=linkedin">
   </a>
-  <img src="https://img.shields.io/badge/CodeChef-5★-orange">
-  <img src="https://img.shields.io/badge/Codeforces-Expert-blue">
+  <a href="https://github.com/shashankswe2020-ux">
+    <img src="https://img.shields.io/github/followers/shashankswe2020-ux?label=Follow&style=social">
+  </a>
 </p>
 
 ---
 
 ## 🧠 Engineering Identity
 
-I build distributed ingestion systems that sustain multi-terabyte indexing workloads under unpredictable traffic — without sacrificing cost efficiency or availability.
+I build and scale backend systems that sustain multi-terabyte ingestion workflows under unpredictable traffic — with strong cost controls and high availability.
 
-Currently part of the indexing charter for **Amazon OpenSearch Serverless (AWS)**.
+Currently engineering ingestion and indexing infrastructure for **Amazon OpenSearch Serverless (AWS)**.
 
-Core focus:
+Primary focus areas:
 - Throughput-aware scaling
-- Backpressure control
-- Observability-first design
-- Cost predictability at scale
+- Controlled backpressure
+- Observability-first telemetry
+- Cost-efficient distributed design
 - Vector search infrastructure for LLM workloads
 
 ---
@@ -39,86 +40,76 @@ Core focus:
 
 ### Amazon — OpenSearch Serverless
 
-**Scalability & Resilience**
-- Designed internal **Index Rollover API** powering ingestion auto-scaling
-- Engineered resource backpressure → reduced availability drops by **90%**
-- Led **5TB+ ingestion benchmarking initiative**
+**Scalability & Reliability**
+- Designed the **Index Rollover API** powering ingestion auto-scaling
+- Built resource backpressure mechanisms → reduced availability drops by **90%**
+- Led 5TB+ ingestion performance benchmarking initiative
 
 **Observability & Metrics**
-- Built dashboards for vector search indices (LLM embeddings / recommendation workloads)
-- Designed ingestion, shard recovery, flush & refresh telemetry systems
+- Created dashboards for vector search indices (LLM embeddings / recommendation workloads)
+- Standardized ingestion, flush, and shard recovery telemetry
 
-**Business Impact**
-- Resolved 100+ high-severity customer escalations
+**Business Outcomes**
+- Resolved 100+ high-impact customer escalations
 - Onboarded major enterprise customer → **+$2M/month revenue**
-- Mitigated cost anomaly → reduced customer billing by **$8.7M**
+- Mitigated cost anomalies → **$8.7M reduction in customer billing**
 
 ---
 
 ### Razorpay — Backend Engineer
 
-- Built advanced tax payment backend → **₹6.4 Crore launch month revenue**
+- Built a high-throughput tax payment backend → **₹6.4 Crore** launch month
 - SME for payout-links microservice
-- Prevented ₹4 Crore financial inconsistency via state correction fix
+- Fixed state inconsistency bug → prevented a **₹4 Crore loss**
 
 ---
 
-## ⚙️ Technical Surface Area
+## 💡 Technical Surface Area
 
 <p>
 <img src="https://skillicons.dev/icons?i=java,go,ts,aws,cpp,python,docker,kubernetes,gcp" />
 </p>
 
-Primary:
-- Java
-- Golang
-- AWS
-- Distributed system design
-
-Secondary:
-- C++
-- Python
-- Docker
-- GraphQL
-- Kubernetes
+**Core**
+- Java • Golang • AWS • Distributed system design  
+**Secondary**
+- C++ • Python • Docker • GraphQL • Kubernetes
 
 ---
 
 ## 🔬 Current Technical Interests
 
-- Backpressure algorithms in ingestion-heavy systems  
-- Cost-aware distributed architecture  
-- Vector indexing for LLM-scale embedding workloads  
-- High-throughput Lucene-based search internals  
-- Failure-mode simulation & benchmarking frameworks  
+- Backpressure algorithms in distributed systems  
+- Cost-aware scalability design  
+- Vector indexing for LLM-scale embeddings  
+- High-throughput Lucene internals  
+- Failure-mode simulation & benchmarking
 
 ---
 
-## 🏆 Competitive Programming
+## 🧠 Competitive Programming
 
-- CodeChef — 2050 Rating (5★)
-- Codeforces — 1618 (Expert)
-- Google Code Jam Round 2 (2019)
-- Facebook Hacker Cup Round 1 (2018)
+- ⭐ CodeChef — 2050 (5★)
+- 🧠 Codeforces — 1618 (Expert)
+- 🔥 Google Code Jam — Round 2
+- ⚡ Facebook Hacker Cup — Round 1
 
-Strong algorithmic foundation complements large-scale production systems work.
+Strong theoretical foundation enhances real-world systems engineering.
 
 ---
 
 ## 🎓 Education
 
-B.E. — Birla Institute of Technology & Science, Pilani (2020)
-
-Relevant Coursework:
-Machine Learning • Graph Theory • Operations Research • Quantum Computing
+**B.E., Birla Institute of Technology & Science, Pilani (2020)**  
+Coursework: Machine Learning • Graph Theory • Operations Research • Quantum Computing
 
 ---
 
 ## 🧩 Philosophy
 
-Design for failure.  
-Measure before optimizing.  
-Scale with intent — not accident.
+> Measure before optimizing.  
+> Design for failure.  
+> Scale with intent.
 
 ---
 
