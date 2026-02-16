@@ -1,10 +1,10 @@
 <p align="center">
-  <img src="https://capsule-render.vercel.app/api?type=waving&height=200&text=Shashank%20Mishra&fontAlign=50&fontSize=40&fontColor=ffffff&color=141E30,243B55,000000" />
+  <img src="https://capsule-render.vercel.app/api?type=waving&height=200&text=Shashank%20Mishra&fontAlign=50&fontSize=40&fontColor=ffffff&color=0:0f2027,50:203a43,100:2c5364" />
 </p>
 
 <p align="center">
   <b>Software Development Engineer II @ Amazon</b><br/>
-  Distributed Systems • Search Infrastructure • Ingestion at Scale • Cost Engineering
+  Distributed Systems • High-Throughput Ingestion • Search Infrastructure • Cost Engineering
 </p>
 
 <p align="center">
@@ -21,95 +21,104 @@
 
 ---
 
-## 🧠 Engineering Identity
+## 🧠 Engineering Summary
 
-I build distributed ingestion and search infrastructure that scales to multi-terabyte workloads with strong cost efficiency and availability guarantees.
+I design and operate distributed ingestion systems that sustain multi-terabyte indexing workloads under unpredictable traffic while maintaining availability and cost efficiency.
 
-Currently focused on **Amazon OpenSearch Serverless (AWS)** — designing systems for high-throughput indexing and observability for vector search workloads.
+Currently part of the indexing charter for **Amazon OpenSearch Serverless (AWS)** — building infrastructure powering vector search and large-scale search workloads.
 
-**Core principles:**
-- Measure before optimizing  
-- Design for failure  
-- Scale with intent  
-- Cost-efficient systems engineering
-
----
-
-## 🚀 Key Impact (Production)
-
-### 🔹 Amazon OpenSearch Serverless
-
-**Scalability & Resilience**
-- Designed and implemented **Index Rollover API** powering ingestion auto-scaling
-- Built controlled resource backpressure → reduced availability drops by **90%**
-- Led performance benchmarking for 5TB+ ingestion workloads
-
-**Observability & Metrics**
-- Created dashboards and telemetry for vector indices (LLM embedding + recommendation)
-- Standardized ingestion + recovery metrics for SLA monitoring
-
-**Business Outcomes**
-- Resolved 100+ high-impact customer escalations
-- Onboarded a major enterprise customer → **+$2M/month revenue**
-- Mitigated cost anomalies → **$8.7M reduction in customer billing**
+I focus on:
+- Throughput-aware scaling
+- Backpressure & flow control
+- Observability-first architecture
+- Failure-mode resilience
+- Cost predictability at scale
 
 ---
 
-### 🔹 Razorpay — Backend Engineer
+## 🚀 Production Ownership
 
-- Built high-throughput tax payment backend → **₹6.4 Crore launch month**
-- SME for payout-links service
-- Fixed critical state inconsistency → prevented **₹4 Crore loss**
+### Amazon — OpenSearch Serverless
+
+**Scalability & Control**
+- Designed and implemented internal **Index Rollover API** enabling ingestion auto-scaling
+- Built controlled backpressure mechanism → reduced availability drops by **90%**
+- Led 5TB+ ingestion benchmarking to identify system bottlenecks
+
+**Observability & Reliability**
+- Designed telemetry for ingestion, shard recovery, flush & refresh metrics
+- Built dashboards for vector search indices (LLM embedding workloads)
+- Improved signal-to-noise ratio in operational alerts
+
+**Business & Customer Impact**
+- Resolved 100+ high-severity performance escalations
+- Onboarded major enterprise customer → **+$2M/month revenue**
+- Mitigated cost anomaly → **$8.7M reduction in customer billing**
 
 ---
 
-## ⚙️ Technical Surface
+### Razorpay — Backend Engineer
+
+- Designed backend for high-throughput tax payment workflows → **₹6.4 Crore launch month revenue**
+- Owned payout-links microservice as SME
+- Fixed state inconsistency bug preventing **₹4 Crore financial exposure**
+
+---
+
+## ⚙️ Technical Depth
 
 <p>
-<img src="https://skillicons.dev/icons?i=java,go,ts,aws,cpp,python,docker,kubernetes,gcp" />
+<img src="https://skillicons.dev/icons?i=java,go,aws,cpp,python,docker,kubernetes" />
 </p>
 
-**Core languages & platforms:**
-- Java • Golang • AWS • Distributed systems
+**Core**
+- Java
+- Golang
+- Distributed system design
+- AWS infrastructure
 
-**Secondary:**
-- C++ • Python • Docker • GraphQL • Kubernetes
-
----
-
-## 🔬 Current Technical Interests
-
-- Backpressure & flow-control algorithms  
-- Cost-aware distributed design  
-- Vector indexing internals for LLM embeddings  
-- Benchmarking and failure-mode simulations  
-- High throughput Lucene internals
+**Secondary**
+- C++
+- Python
+- Docker
+- Kubernetes
+- GraphQL
 
 ---
 
-## 🧠 Competitive Programming
+## 🔬 Systems Interests
 
-- ⭐ CodeChef — 2050 (5★)  
-- 🧠 Codeforces — 1618 (Expert)  
-- 🚀 Google Code Jam — Round 2  
-- ⚡ Facebook Hacker Cup — Round 1
+- Flow control algorithms in ingestion-heavy systems  
+- Vector indexing for large-scale embedding workloads  
+- Cost-aware distributed architecture  
+- Lucene internals & indexing pipelines  
+- Benchmarking & load simulation frameworks  
+
+---
+
+## 🏆 Competitive Programming
+
+- CodeChef — 2050 (5★)
+- Codeforces — 1618 (Expert)
+- Google Code Jam Round 2
+- Facebook Hacker Cup Round 1
+
+Strong algorithmic foundation complements production systems work.
 
 ---
 
 ## 🎓 Education
 
-**B.E., Birla Institute of Technology & Science, Pilani (2020)**  
-Relevant coursework: Machine Learning • Graph Theory • Operations Research • Quantum Computing
+B.E., Birla Institute of Technology & Science, Pilani (2020)
 
 ---
 
-## 📌 Philosophy
+## 📌 Engineering Philosophy
 
-> Build systems that survive scale.  
-> Measure before optimizing.  
-> Design for failure.  
-> Scale with intent.
+Design for failure.  
+Measure before optimizing.  
+Scale deliberately — not accidentally.
 
 <p align="center">
-  <i>Impact-first engineering.</i>
+  <i>Impact-driven distributed systems engineering.</i>
 </p>
