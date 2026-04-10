@@ -119,7 +119,7 @@ Strong algorithmic foundation complements production systems work.
 
 ## 🎓 Education
 
-<img src="https://upload.wikimedia.org/wikipedia/en/thumb/9/9a/BITS_Pilani-Logo.svg/110px-BITS_Pilani-Logo.svg.png" alt="BITS Pilani" height="50" /> &nbsp; B.E., Birla Institute of Technology & Science, Pilani (2020)
+<img src="assets/logos/bits-pilani.svg" alt="BITS Pilani" height="50" /> &nbsp; B.E., Birla Institute of Technology & Science, Pilani (2020)
 
 ---
 
