@@ -3,8 +3,8 @@
 </p>
 
 <p align="center">
-  <b>Software Development Engineer II @ Amazon</b><br/>
-  Distributed Systems • High-Throughput Ingestion • Search Infrastructure • Cost Engineering
+  <b>Software Development Engineer 2 @ <img src="https://img.shields.io/badge/Microsoft-0078D4?style=flat&logo=microsoft&logoColor=white" alt="Microsoft" height="20" /> | Ex-<img src="https://img.shields.io/badge/Amazon-FF9900?style=flat&logo=amazon&logoColor=white" alt="Amazon" height="20" />, Ex-<img src="https://img.shields.io/badge/Razorpay-0C2451?style=flat&logo=razorpay&logoColor=white" alt="Razorpay" height="20" /></b><br/>
+  Distributed Systems • Cloud Infrastructure • High-Throughput Ingestion • Search Infrastructure • Cost Engineering
 </p>
 
 <p align="center">
@@ -23,9 +23,9 @@
 
 ## 🧠 Engineering Summary
 
-I design and operate distributed ingestion systems that sustain multi-terabyte indexing workloads under unpredictable traffic while maintaining availability and cost efficiency.
+I design and operate distributed systems that sustain high-throughput workloads under unpredictable traffic while maintaining availability and cost efficiency.
 
-Currently part of the indexing charter for **Amazon OpenSearch Serverless (AWS)** — building infrastructure powering vector search and large-scale search workloads.
+Currently working as an **SDE 2 (L62) at Microsoft**, building scalable cloud infrastructure and services. Previously part of the indexing charter for **Amazon OpenSearch Serverless (AWS)** — building infrastructure powering vector search and large-scale search workloads.
 
 I focus on:
 - Throughput-aware scaling
@@ -38,7 +38,15 @@ I focus on:
 
 ## 🚀 Production Ownership
 
-### Amazon — OpenSearch Serverless
+### <img src="https://img.shields.io/badge/Microsoft-0078D4?style=flat&logo=microsoft&logoColor=white" alt="Microsoft" height="20" /> Microsoft — Software Development Engineer 2 (L62)
+
+- Building scalable cloud infrastructure and services at Microsoft
+- Applying distributed systems expertise to large-scale product engineering
+- Driving system design, performance optimization, and reliability improvements
+
+---
+
+### <img src="https://img.shields.io/badge/Amazon-FF9900?style=flat&logo=amazon&logoColor=white" alt="Amazon" height="20" /> Amazon — OpenSearch Serverless (Previous)
 
 **Scalability & Control**
 - Designed and implemented internal **Index Rollover API** enabling ingestion auto-scaling
@@ -57,7 +65,7 @@ I focus on:
 
 ---
 
-### Razorpay — Backend Engineer
+### <img src="https://img.shields.io/badge/Razorpay-0C2451?style=flat&logo=razorpay&logoColor=white" alt="Razorpay" height="20" /> Razorpay — Backend Engineer (Previous)
 
 - Designed backend for high-throughput tax payment workflows → **₹6.4 Crore launch month revenue**
 - Owned payout-links microservice as SME
@@ -68,14 +76,16 @@ I focus on:
 ## ⚙️ Technical Depth
 
 <p>
-<img src="https://skillicons.dev/icons?i=java,go,aws,cpp,python,docker,kubernetes" />
+<img src="https://skillicons.dev/icons?i=java,go,cs,dotnet,aws,azure,cpp,python,docker,kubernetes" />
 </p>
 
 **Core**
 - Java
 - Golang
+- C#
+- .NET
 - Distributed system design
-- AWS infrastructure
+- AWS & Azure infrastructure
 
 **Secondary**
 - C++
@@ -109,7 +119,7 @@ Strong algorithmic foundation complements production systems work.
 
 ## 🎓 Education
 
-B.E., Birla Institute of Technology & Science, Pilani (2020)
+<img src="https://img.shields.io/badge/BITS_Pilani-BE_2020-darkred?style=flat&logo=data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJ3aGl0ZSI+PHBhdGggZD0iTTEyIDNMIDEgOWwxMSA2IDkuMDctNC45M1YxN2gyVjkuMjdMMTIgM3ptMCA4LjUtNy41My00LjFMIDEyIDMuNzJsNy41MyA0LjFMMTIgMTEuNXptLTYgMy4yNXY0TDEyIDIybDYtMy4yNXYtNEwxMiAxOGwtNi0zLjI1eiIvPjwvc3ZnPg==&logoColor=white" alt="BITS Pilani" height="25" /> B.E., Birla Institute of Technology & Science, Pilani (2020)
 
 ---
 
