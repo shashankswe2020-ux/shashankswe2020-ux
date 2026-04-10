@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="200" height="200">
+  <circle cx="100" cy="100" r="95" fill="#1A237E" stroke="#C5A02E" stroke-width="4"/>
+  <circle cx="100" cy="100" r="82" fill="none" stroke="#C5A02E" stroke-width="2"/>
+  <!-- Torch/flame symbol -->
+  <rect x="95" y="60" width="10" height="40" rx="2" fill="#C5A02E"/>
+  <ellipse cx="100" cy="55" rx="10" ry="14" fill="#FF8F00"/>
+  <ellipse cx="100" cy="52" rx="6" ry="10" fill="#FFD54F"/>
+  <!-- Book symbol -->
+  <path d="M80 108 L100 115 L120 108 L120 125 L100 132 L80 125 Z" fill="#C5A02E"/>
+  <line x1="100" y1="115" x2="100" y2="132" stroke="#1A237E" stroke-width="1.5"/>
+  <!-- BITS text -->
+  <text x="100" y="155" text-anchor="middle" font-family="Georgia, serif" font-size="26" font-weight="bold" fill="#FFFFFF" letter-spacing="4">BITS</text>
+  <!-- PILANI text -->
+  <text x="100" y="172" text-anchor="middle" font-family="Georgia, serif" font-size="12" fill="#C5A02E" letter-spacing="3">PILANI</text>
+  <!-- Curved top text -->
+  <defs>
+    <path id="topArc" d="M 30 100 A 70 70 0 0 1 170 100"/>
+  </defs>
+  <text font-family="Georgia, serif" font-size="8" fill="#C5A02E" letter-spacing="2">
+    <textPath href="#topArc" startOffset="50%" text-anchor="middle">BIRLA INSTITUTE OF TECHNOLOGY &amp; SCIENCE</textPath>
+  </text>
+</svg>
