@@ -3,7 +3,7 @@
 </p>
 
 <p align="center">
-  <b>Software Development Engineer 2 @ Microsoft | Ex-Amazon, Ex-Razorpay</b><br/>
+  <b>Software Development Engineer 2 @ <img src="https://img.shields.io/badge/Microsoft-0078D4?style=flat&logo=microsoft&logoColor=white" alt="Microsoft" height="20" /> | Ex-<img src="https://img.shields.io/badge/Amazon-FF9900?style=flat&logo=amazon&logoColor=white" alt="Amazon" height="20" />, Ex-<img src="https://img.shields.io/badge/Razorpay-0C2451?style=flat&logo=razorpay&logoColor=white" alt="Razorpay" height="20" /></b><br/>
   Distributed Systems • Cloud Infrastructure • High-Throughput Ingestion • Search Infrastructure • Cost Engineering
 </p>
 
@@ -38,7 +38,7 @@ I focus on:
 
 ## 🚀 Production Ownership
 
-### Microsoft — Software Development Engineer 2 (L62)
+### <img src="https://img.shields.io/badge/Microsoft-0078D4?style=flat&logo=microsoft&logoColor=white" alt="Microsoft" height="20" /> Microsoft — Software Development Engineer 2 (L62)
 
 - Building scalable cloud infrastructure and services at Microsoft
 - Applying distributed systems expertise to large-scale product engineering
@@ -46,7 +46,7 @@ I focus on:
 
 ---
 
-### Amazon — OpenSearch Serverless (Previous)
+### <img src="https://img.shields.io/badge/Amazon-FF9900?style=flat&logo=amazon&logoColor=white" alt="Amazon" height="20" /> Amazon — OpenSearch Serverless (Previous)
 
 **Scalability & Control**
 - Designed and implemented internal **Index Rollover API** enabling ingestion auto-scaling
@@ -65,7 +65,7 @@ I focus on:
 
 ---
 
-### Razorpay — Backend Engineer (Previous)
+### <img src="https://img.shields.io/badge/Razorpay-0C2451?style=flat&logo=razorpay&logoColor=white" alt="Razorpay" height="20" /> Razorpay — Backend Engineer (Previous)
 
 - Designed backend for high-throughput tax payment workflows → **₹6.4 Crore launch month revenue**
 - Owned payout-links microservice as SME
@@ -119,7 +119,7 @@ Strong algorithmic foundation complements production systems work.
 
 ## 🎓 Education
 
-B.E., Birla Institute of Technology & Science, Pilani (2020)
+<img src="https://img.shields.io/badge/BITS_Pilani-BE_2020-darkred?style=flat&logo=data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJ3aGl0ZSI+PHBhdGggZD0iTTEyIDNMIDEgOWwxMSA2IDkuMDctNC45M1YxN2gyVjkuMjdMMTIgM3ptMCA4LjUtNy41My00LjFMIDEyIDMuNzJsNy41MyA0LjFMMTIgMTEuNXptLTYgMy4yNXY0TDEyIDIybDYtMy4yNXYtNEwxMiAxOGwtNi0zLjI1eiIvPjwvc3ZnPg==&logoColor=white" alt="BITS Pilani" height="25" /> B.E., Birla Institute of Technology & Science, Pilani (2020)
 
 ---
 
