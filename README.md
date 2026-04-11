@@ -115,7 +115,6 @@ MCP server to connect to the WHOOP API. Built with TypeScript, it enables seamle
   <tr>
     <td><img src="https://raw.githubusercontent.com/shashankswe2020-ux/whoop-mcp/main/images/whoop-mcp-connected.png" width="240" /></td>
     <td><img src="https://raw.githubusercontent.com/shashankswe2020-ux/whoop-mcp/main/images/Claude-chat-with-whoop-mcp-integrated.png" width="240" /></td>
-    <td><img src="https://raw.githubusercontent.com/shashankswe2020-ux/whoop-mcp/main/images/Screenshot%202026-04-12%20at%202.40.55%E2%80%AFAM.png" width="240" /></td>
     <td><img src="https://raw.githubusercontent.com/shashankswe2020-ux/whoop-mcp/main/images/Screenshot%202026-04-12%20at%202.43.02%E2%80%AFAM.png" width="240" /></td>
   </tr>
 </table>
