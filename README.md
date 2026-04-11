@@ -109,7 +109,7 @@ I focus on:
 ## 🛠️ Personal Projects
 
 ### [whoop-mcp](https://github.com/shashankswe2020-ux/whoop-mcp)
-MCP server to connect to the WHOOP API. Built with TypeScript, it enables seamless integration with WHOOP's health and fitness data through the Model Context Protocol.
+MCP server to connect to the WHOOP API. Built with TypeScript, it enables seamless integration with WHOOP's health and fitness data through the Model Context Protocol. Use can add it as connector in claude desktop too
 
 <table>
   <tr>
