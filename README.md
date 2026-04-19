@@ -119,6 +119,16 @@ MCP server to connect to the WHOOP API. Built with TypeScript, it enables seamle
   </tr>
 </table>
 
+### [research-buddy](https://github.com/shashankswe2020-ux/research-buddy)
+AI-powered research paper agent that orchestrates spec-driven development, planning, code review, documentation, and shipping — all through a multi-agent architecture built for end-to-end research workflows.
+
+<table>
+  <tr>
+    <td><img src="https://github.com/user-attachments/assets/ec1e5947-eecc-4fa6-81d9-326a2eabeac8" width="400" /></td>
+    <td><img src="https://github.com/user-attachments/assets/20081cda-98db-42c5-a48f-e9c79e349a17" width="400" /></td>
+  </tr>
+</table>
+
 ---
 
 ## 🏆 Competitive Programming
