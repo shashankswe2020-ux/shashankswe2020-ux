@@ -119,6 +119,16 @@ MCP server to connect to the WHOOP API. Built with TypeScript, it enables seamle
   </tr>
 </table>
 
+### [backend-pro-max-skill](https://github.com/shashankswe2020-ux/backend-pro-max-skill)
+Staff-Engineer-in-a-Box: curated, BM25-searchable backend & distributed-systems intelligence across 20 domains and 12 language stacks — drop it into Claude Code, Cursor, Copilot, or any AI assistant.
+
+<table>
+  <tr>
+    <td><img src="https://github.com/user-attachments/assets/526c9078-14d0-4475-a465-a9108ce76e9e" width="400" /></td>
+    <td><img src="https://github.com/user-attachments/assets/7b802b10-b3a3-4682-aaea-c6bb2447978f" width="400" /></td>
+  </tr>
+</table>
+
 ### [research-buddy](https://github.com/shashankswe2020-ux/research-buddy)
 AI-powered research paper agent that orchestrates spec-driven development, planning, code review, documentation, and shipping — all through a multi-agent architecture built for end-to-end research workflows.
 
