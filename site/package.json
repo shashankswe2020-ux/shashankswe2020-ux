@@ -1,0 +1,26 @@
+{
+  "name": "shashank-portfolio",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "description": "Personal portfolio site for Shashank Mishra. Built with Vite + TypeScript, animated with Anime.js v4, GSAP, Three.js (WebGPU), Theatre.js, with Barba.js page transitions.",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc --noEmit && vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "@barba/core": "^2.10.3",
+    "@theatre/core": "^0.7.2",
+    "@theatre/studio": "^0.7.2",
+    "animejs": "^4.3.6",
+    "gsap": "^3.15.0",
+    "three": "^0.184.0"
+  },
+  "devDependencies": {
+    "@types/node": "^25.6.0",
+    "@types/three": "^0.184.0",
+    "typescript": "^5.6.3",
+    "vite": "^7.3.2"
+  }
+}

@@ -14,9 +14,17 @@
   <a href="https://www.linkedin.com/in/shashank-mishra-015a2b116">
     <img src="https://img.shields.io/badge/LinkedIn-Profile-blue?style=flat&logo=linkedin">
   </a>
+  <a href="https://shashankswe2020-ux.github.io/shashankswe2020-ux/">
+    <img src="https://img.shields.io/badge/Portfolio-Live%20Site-6ee7ff?style=flat&logo=vercel&logoColor=white">
+  </a>
   <a href="https://github.com/shashankswe2020-ux">
     <img src="https://img.shields.io/github/followers/shashankswe2020-ux?label=Follow&style=social">
   </a>
+</p>
+
+<p align="center">
+  🌐 <b><a href="https://shashankswe2020-ux.github.io/shashankswe2020-ux/">shashankswe2020-ux.github.io/shashankswe2020-ux</a></b> — interactive portfolio<br/>
+  <sub>Built with Anime.js v4 · Barba.js · Three.js (WebGPU) · GSAP · Theatre.js — source in <a href="./site"><code>/site</code></a></sub>
 </p>
 
 ---
@@ -167,3 +175,27 @@ Scale deliberately — not accidentally.
 <p align="center">
   <i>Impact-driven distributed systems engineering.</i>
 </p>
+
+---
+
+## 🌐 Interactive Portfolio
+
+A real, animated multi-page portfolio site lives under [`/site`](./site) and deploys to GitHub Pages on every push to `main`.
+
+| Library | Where it shows up |
+| --- | --- |
+| [**Anime.js v4**](https://animejs.com) — modular physics | Skill-chip entrance + hover springs (`createSpring`) on the Work page |
+| [**Barba.js**](https://barba.js.org) | Smooth slide-cover transitions between Home / Work / Projects / Contact |
+| [**Three.js (WebGPU)**](https://threejs.org) | Hero scene; uses `WebGPURenderer` when available, falls back to WebGL |
+| [**GSAP**](https://gsap.com) (+ ScrollTrigger) | Page-transition cover animation, scroll reveals, hero fallback timeline |
+| [**Theatre.js**](https://www.theatrejs.com) | Choreographs the hero intro sequence (Studio loaded only in dev) |
+
+Run locally:
+
+```bash
+cd site
+npm install
+npm run dev
+```
+
+See [`site/README.md`](./site/README.md) for build & deployment details.
