@@ -19,7 +19,7 @@ export function prepareHeroIntro(scope: ParentNode = document): HeroIntro | null
   if (!title) return null;
 
   // Split title into word spans (idempotent).
-  if (!title.dataset.split_done) {
+  if (!title.dataset.splitDone) {
     const words = (title.textContent ?? '').trim().split(/\s+/);
     title.textContent = '';
     for (const w of words) {
@@ -28,7 +28,7 @@ export function prepareHeroIntro(scope: ParentNode = document): HeroIntro | null
       span.textContent = w;
       title.appendChild(span);
     }
-    title.dataset.split_done = '1';
+    title.dataset.splitDone = '1';
   }
 
   const wordEls = Array.from(title.querySelectorAll<HTMLElement>('.word'));

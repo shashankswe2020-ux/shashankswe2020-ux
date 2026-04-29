@@ -13,7 +13,7 @@ genuinely uses the libraries called out in the brief:
 
 ## Stack
 
-- Vite 5 + TypeScript (strict)
+- Vite 7 + TypeScript (strict)
 - Plain HTML pages so Barba can do real cross-document transitions
 - Deployed to GitHub Pages via `.github/workflows/deploy-site.yml`
 
