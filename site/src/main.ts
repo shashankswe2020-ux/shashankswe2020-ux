@@ -33,7 +33,7 @@ function initAmbientPointer() {
 }
 
 function setYear(scope: ParentNode) {
-  scope.querySelectorAll<HTMLElement>('#year').forEach((el) => {
+  scope.querySelectorAll<HTMLElement>('#year, [data-year]').forEach((el) => {
     el.textContent = String(new Date().getFullYear());
   });
 }
