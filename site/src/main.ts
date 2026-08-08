@@ -19,8 +19,21 @@ import { prepareHeroIntro } from './animations/hero-intro';
 let currentHero: HeroHandle | null = null;
 let currentRevealsCleanup: (() => void) | null = null;
 
+function initAmbientPointer() {
+  if (matchMedia('(pointer: coarse), (prefers-reduced-motion: reduce)').matches) return;
+
+  window.addEventListener(
+    'pointermove',
+    (event) => {
+      document.documentElement.style.setProperty('--pointer-x', `${event.clientX}px`);
+      document.documentElement.style.setProperty('--pointer-y', `${event.clientY}px`);
+    },
+    { passive: true },
+  );
+}
+
 function setYear(scope: ParentNode) {
-  scope.querySelectorAll<HTMLElement>('#year').forEach((el) => {
+  scope.querySelectorAll<HTMLElement>('#year, [data-year]').forEach((el) => {
     el.textContent = String(new Date().getFullYear());
   });
 }
@@ -72,6 +85,8 @@ async function enterPage(container: HTMLElement, namespace: string) {
   // Skill chips appear on /work — and the function is a no-op elsewhere.
   animateChips(container);
 }
+
+initAmbientPointer();
 
 initBarba({
   onInit: (container, namespace) => enterPage(container, namespace),
