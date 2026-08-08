@@ -36,20 +36,25 @@ export function initBarba(hooks: PageHooks): void {
           hooks.onLeave?.(data.current.container as HTMLElement, data.current.namespace);
           if (!overlay) return;
           await gsap.to(overlay, {
-            yPercent: -100,
+            yPercent: 0,
             duration: 0.55,
             ease: 'power3.inOut',
             startAt: { yPercent: 100 },
           });
         },
         async enter(data) {
-          if (overlay) {
-            // Reset overlay below view for the next transition.
-            gsap.set(overlay, { yPercent: 100 });
-          }
           window.scrollTo(0, 0);
           syncNav(data.next.namespace);
           await hooks.onEnter(data.next.container as HTMLElement, data.next.namespace);
+          if (overlay) {
+            await gsap.to(overlay, {
+              yPercent: -100,
+              duration: 0.55,
+              ease: 'power3.inOut',
+            });
+            // Reset below the viewport for the next transition.
+            gsap.set(overlay, { yPercent: 100 });
+          }
         },
       },
     ],
