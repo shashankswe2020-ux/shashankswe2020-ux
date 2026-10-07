@@ -76,8 +76,11 @@ function sceneE(t,w,dt){wave('seaE1',300,4,.011,.9,t,w,420);wave('seaE2',330,5,.
   let d='M0 22';for(let i=1;i<10;i++)d+=` L${(i*8*(.6+w*.5)).toFixed(1)} ${(22+i*4+Math.sin(t*6+i)*4*w).toFixed(1)}`;$('tailE').setAttribute('d',d);}
 
 /* fireflies + grass on canvas */
-const cv=$('field'),cx=cv.getContext('2d');let FW=0,FH=0,DPR=1,blades=[],flies=[];
-function sizeField(){const r=cv.getBoundingClientRect();DPR=Math.min(2,devicePixelRatio||1);cv.width=Math.max(1,r.width*DPR);cv.height=Math.max(1,r.height*DPR);FW=cv.width;FH=cv.height;
+const cv=$('field'),cx=cv.getContext('2d');let FW=0,FH=0,DPR=1,blades=[],flies=[],fly=null;
+// Mobile browsers fire resize whenever the address bar shows/hides; reallocating the canvas each time exhausts iOS canvas memory.
+function sizeField(){const r=cv.getBoundingClientRect(),d=Math.min(2,devicePixelRatio||1),nw=Math.max(1,Math.round(r.width*d)),nh=Math.max(1,Math.round(r.height*d));if(nw===FW&&nh===FH)return;DPR=d;
+  fly=document.createElement('canvas');const R=Math.ceil(9*DPR);fly.width=fly.height=R*2;const fc=fly.getContext('2d'),g=fc.createRadialGradient(R,R,0,R,R,R);g.addColorStop(0,'rgba(242,223,120,1)');g.addColorStop(1,'rgba(242,223,120,0)');fc.fillStyle=g;fc.fillRect(0,0,R*2,R*2);
+  cv.width=nw;cv.height=nh;FW=cv.width;FH=cv.height;
   blades=[];const n=Math.round(r.width/4);for(let i=0;i<n;i++)blades.push({x:i/n*FW+Math.random()*4,h:FH*(.22+Math.random()*.4),c:Math.random()});
   flies=Array.from({length:Math.max(12,Math.round(r.width/24))},()=>({x:Math.random()*FW,y:FH*(.15+Math.random()*.75),p:Math.random()*6.28}));}
 function field(t,w,dt){scooterStep(t,w,dt);cx.clearRect(0,0,FW,FH);
@@ -86,21 +89,25 @@ function field(t,w,dt){scooterStep(t,w,dt);cx.clearRect(0,0,FW,FH);
   cx.lineWidth=1.6*DPR;cx.lineCap='round';
   for(const b of blades){const bend=(w*.55+.12)*b.h*.5*(1+.35*Math.sin(t*2.2-b.x/FW*9));cx.strokeStyle=b.c>.5?'#203529':'#2a4334';cx.beginPath();cx.moveTo(b.x,FH);cx.quadraticCurveTo(b.x+bend*.2,FH-b.h*.55,b.x+bend,FH-b.h);cx.stroke();}
   for(const f of flies){f.p+=dt*1.2;f.x+=(w*18+Math.cos(f.p)*10)*dt*DPR;f.y+=Math.sin(f.p*1.3)*8*dt*DPR;if(f.x>FW+20)f.x=-20;
-    const a=.3+.7*Math.max(0,Math.sin(f.p*2.1)),r=9*DPR,g=cx.createRadialGradient(f.x,f.y,0,f.x,f.y,r);g.addColorStop(0,`rgba(242,223,120,${a.toFixed(2)})`);g.addColorStop(1,'rgba(242,223,120,0)');cx.fillStyle=g;cx.beginPath();cx.arc(f.x,f.y,r,0,7);cx.fill();}}
-sizeField();addEventListener('resize',sizeField);
+    cx.globalAlpha=.3+.7*Math.max(0,Math.sin(f.p*2.1));cx.drawImage(fly,f.x-fly.width/2,f.y-fly.height/2);}cx.globalAlpha=1;}
+let rz=0;sizeField();addEventListener('resize',()=>{clearTimeout(rz);rz=setTimeout(sizeField,150)});
 
 /* ---------- chapters, sky, flight path ---------- */
 const secs=[...document.querySelectorAll('.chapter')],track=$('track'),plane=$('plane');
 const dots=secs.map((s,i)=>{const a=document.createElement('a');a.className='dot';a.href='#'+s.id;a.setAttribute('aria-label',s.dataset.name);a.title=s.dataset.name;a.style.left=(i/(secs.length-1)*100)+'%';track.appendChild(a);return a});
 const hex=h=>[1,3,5].map(i=>parseInt(h.slice(i,i+2),16)),mix=(a,b,t)=>'rgb('+a.map((v,i)=>Math.round(v+(b[i]-v)*t)).join(',')+')';
 const themeMeta=document.querySelector('meta[name="theme-color"]');
-const pals=secs.map(s=>s.dataset.sky.split(',').map(hex)),root=document.documentElement;let current=0;
-function onScroll(){const mid=innerHeight*.5;let idx=0,t=0;secs.forEach((s,i)=>{const r=s.getBoundingClientRect();if(r.top<=mid){idx=i;t=Math.min(1,Math.max(0,(mid-r.top)/r.height))}});
+const pals=secs.map(s=>s.dataset.sky.split(',').map(hex)),skyEl=$('sky'),flightEl=document.querySelector('.flight'),cloudEl=$('clouds'),cards=document.querySelector('#ch6 .cards');let current=-1,lastTop='',lastBot='',ticking=false;
+function setVar(el,k,v){el.style.setProperty(k,v)}
+function onScroll(){if(!ticking){ticking=true;requestAnimationFrame(()=>{ticking=false;updateScroll()})}}
+function updateScroll(){const tw=track.clientWidth;const mid=innerHeight*.5;let idx=0,t=0;secs.forEach((s,i)=>{const r=s.getBoundingClientRect();if(r.top<=mid){idx=i;t=Math.min(1,Math.max(0,(mid-r.top)/r.height))}});
   const a=pals[idx],b=pals[Math.min(idx+1,pals.length-1)],k=Math.max(0,(t-.65)/.35);
-  const top=mix(a[0],b[0],k);root.style.setProperty('--sky-top',top);if(themeMeta)themeMeta.content=top;root.style.setProperty('--sky-bot',mix(a[1],b[1],k));
-  dots.forEach((d,i)=>d.setAttribute('aria-current',i===idx));root.style.setProperty('--cloud-op',secs[idx].classList.contains('night')?'.14':'.6');plane.style.left=((idx+t)/(secs.length-1)*100)+'%';current=idx;
+  const top=mix(a[0],b[0],k),bot=mix(a[1],b[1],k);
+  if(top!==lastTop){lastTop=top;setVar(skyEl,'--sky-top',top);setVar(flightEl,'--sky-top',top)}if(bot!==lastBot){lastBot=bot;setVar(skyEl,'--sky-bot',bot)}
+  if(idx!==current){dots.forEach((d,i)=>d.setAttribute('aria-current',i===idx));setVar(cloudEl,'--cloud-op',secs[idx].classList.contains('night')?'.14':'.6');if(themeMeta)themeMeta.content='rgb('+a[0].join(',')+')';current=idx}
+  plane.style.transform=`translateX(${((idx+t)/(secs.length-1)*tw).toFixed(1)}px)`;
   const dy=Math.abs(scrollY-lastY);lastY=scrollY;W.boost=Math.min(.7,W.boost+dy*.0015);}
-addEventListener('scroll',onScroll,{passive:true});addEventListener('resize',onScroll);onScroll();
+addEventListener('scroll',onScroll,{passive:true});addEventListener('resize',onScroll);updateScroll();
 
 /* only animate what is on screen */
 const runners={sceneP:kiteStep,scene1,scene2,scene4,scene5,scene6,sceneE,fieldWrap:field};
@@ -111,7 +118,7 @@ Object.keys(runners).forEach(id=>io.observe($(id)));
 for(let i=0;i<150;i++)kiteStep(i*.016,.55,.016);Object.keys(runners).forEach(k=>{if(k!=='sceneP')runners[k](1,.55,.016)});
 let last=performance.now();
 function frame(now){const dt=Math.min(.05,Math.max(0,(now-last)/1000));last=now;W.t+=dt;W.boost*=Math.pow(.25,dt);const w=wind(W.t);
-  root.style.setProperty('--wind',(w-.55).toFixed(3));
+  if(cards&&visible.has('scene6'))setVar(cards,'--wind',(w-.55).toFixed(3));
   for(const id of visible)runners[id](W.t,w,dt);
   clouds.forEach(c=>{c.x+=dt*(6+w*22)*c.depth;if(c.x>innerWidth+60)c.x=-c.w-60;c.im.style.transform=`translate(${c.x.toFixed(1)}px,${(c.y*innerHeight/100-scrollY*.06*c.depth).toFixed(1)}px)`});
   if(!reduce)requestAnimationFrame(frame);}

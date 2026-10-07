@@ -22,6 +22,8 @@ body{margin:0;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibili
 #clouds{opacity:var(--cloud-op,.6);transition:opacity .8s}
 #clouds img{position:absolute;left:0;top:0;filter:brightness(1.22) saturate(.7);will-change:transform;user-select:none}
 #paper{position:fixed;inset:0;z-index:50;pointer-events:none;background:url("/tex/paper.webp") 0 0/512px 512px;mix-blend-mode:soft-light;opacity:.42}
+/* Touch devices: a full-screen blended overlay above every layer is the heaviest thing for mobile GPUs, so grain only the sky there. */
+@media (hover:none),(pointer:coarse){#paper{display:none}#sky{background:url("/tex/paper.webp") 0 0/512px 512px,linear-gradient(180deg,var(--sky-top),var(--sky-bot));background-blend-mode:soft-light}}
 a{color:inherit;text-decoration-thickness:1px;text-underline-offset:4px}
 a:hover{text-decoration-thickness:2px}
 a:focus-visible,button:focus-visible{outline:2px dashed var(--ember);outline-offset:4px}
@@ -40,7 +42,7 @@ h2{font-size:var(--s-2)}
 .track::before{content:"";position:absolute;left:0;right:0;top:13px;border-top:1.5px dashed rgba(43,37,32,.4)}
 .dot{position:absolute;top:8px;width:12px;height:12px;margin-left:-6px;border-radius:50%;background:var(--paper);border:1.5px solid var(--ink);pointer-events:auto}
 .dot[aria-current="true"]{background:var(--ink)}
-#plane{position:absolute;top:-2px;width:30px;height:30px;margin-left:-15px}
+#plane{position:absolute;top:-2px;left:0;width:30px;height:30px;margin-left:-15px}
 
 /* chapters */
 .chapter{position:relative}
