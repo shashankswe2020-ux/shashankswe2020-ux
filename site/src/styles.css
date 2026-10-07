@@ -84,6 +84,19 @@ h2{font-size:var(--s-2)}
 .entry>div{display:grid;gap:0}
 .entry p{max-width:none}
 .entry p+p{text-indent:1.6em}
+/* interlude card tucked into the logbook */
+.interlude{position:relative;margin:6px 0 4px -12px;padding:22px 24px 24px;background:#f4ead6;box-shadow:0 16px 28px -18px rgba(0,0,0,.55);transform:rotate(-1.1deg);display:grid;grid-template-columns:minmax(0,1fr) auto;gap:10px 26px;align-items:start;line-height:1.6}
+.interlude::before{content:"";position:absolute;top:-10px;left:38px;width:84px;height:22px;background:rgba(243,233,198,.9);transform:rotate(-4deg)}
+.interlude h3{margin:0 0 4px;font:400 1.7rem/1.15 var(--f-display)}
+.il-text{display:grid;gap:.7em;min-width:0}
+.il-when{font-family:var(--f-hand);font-weight:300;color:var(--ink-soft);font-size:.95rem}
+.il-diary{font-family:var(--f-hand);color:var(--ember);font-size:1.12rem;line-height:1.45;border-left:2px solid rgba(196,103,58,.4);padding-left:12px}
+.il-pass{width:240px;grid-template-columns:1fr 64px;transform:rotate(4deg);margin:18px 0 0}
+.il-pass .route{font-size:1.6rem}
+.il-pass .stub{font-size:1.05rem}
+.interlude-row .where{color:var(--sea)}
+@media (max-width:860px){.interlude{grid-template-columns:1fr;margin-left:0}.il-pass{margin:4px 0 0 6px}}
+.interlude p+p{text-indent:0}
 @media (max-width:860px){.logbook{grid-column:1 / -1;padding-right:16px;background-image:repeating-linear-gradient(180deg,transparent 0 29px,rgba(120,160,195,.35) 29px 30px)}.entry{grid-template-columns:1fr}.entry .where{text-align:left;padding:0 0 0 16px}.entry>div{padding-left:16px}}
 
 /* blueprints */
@@ -135,6 +148,7 @@ h2{font-size:var(--s-2)}
 .links{display:flex;flex-wrap:wrap;gap:8px 22px;justify-content:center;align-items:baseline;font-size:1.08rem}
 .linkbtn{font:inherit;background:none;border:0;padding:0;color:var(--ember);font-family:var(--f-hand);cursor:pointer;text-decoration:underline;text-underline-offset:4px}
 .mail{user-select:all;overflow-wrap:anywhere}
+.kept{max-width:52ch}
 footer{text-align:center;padding:20px 16px 80px;font-family:var(--f-hand);font-weight:300;color:var(--ink-soft)}
 
 /* record (music) */
