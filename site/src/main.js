@@ -96,6 +96,7 @@ let rz=0;sizeField();addEventListener('resize',()=>{clearTimeout(rz);rz=setTimeo
 const secs=[...document.querySelectorAll('.chapter')],track=$('track'),plane=$('plane');
 const dots=secs.map((s,i)=>{const a=document.createElement('a');a.className='dot';a.href='#'+s.id;a.setAttribute('aria-label',s.dataset.name);a.title=s.dataset.name;a.style.left=(i/(secs.length-1)*100)+'%';track.appendChild(a);return a});
 const hex=h=>[1,3,5].map(i=>parseInt(h.slice(i,i+2),16)),mix=(a,b,t)=>'rgb('+a.map((v,i)=>Math.round(v+(b[i]-v)*t)).join(',')+')';
+const nowLabel=$('nowLabel');
 const themeMeta=document.querySelector('meta[name="theme-color"]');
 const pals=secs.map(s=>s.dataset.sky.split(',').map(hex)),skyEl=$('sky'),flightEl=document.querySelector('.flight'),cloudEl=$('clouds'),cards=document.querySelector('#ch6 .cards');let current=-1,lastTop='',lastBot='',ticking=false;
 function setVar(el,k,v){el.style.setProperty(k,v)}
@@ -104,7 +105,7 @@ function updateScroll(){const tw=track.clientWidth;const mid=innerHeight*.5;let 
   const a=pals[idx],b=pals[Math.min(idx+1,pals.length-1)],k=Math.max(0,(t-.65)/.35);
   const top=mix(a[0],b[0],k),bot=mix(a[1],b[1],k);
   if(top!==lastTop){lastTop=top;setVar(skyEl,'--sky-top',top);setVar(flightEl,'--sky-top',top)}if(bot!==lastBot){lastBot=bot;setVar(skyEl,'--sky-bot',bot)}
-  if(idx!==current){dots.forEach((d,i)=>d.setAttribute('aria-current',i===idx));setVar(cloudEl,'--cloud-op',secs[idx].classList.contains('night')?'.14':'.6');if(themeMeta)themeMeta.content='rgb('+a[0].join(',')+')';current=idx}
+  if(idx!==current){dots.forEach((d,i)=>d.setAttribute('aria-current',i===idx));nowLabel.textContent=secs[idx].dataset.name;flightEl.classList.toggle('is-night',secs[idx].classList.contains('night'));setVar(cloudEl,'--cloud-op',secs[idx].classList.contains('night')?'.14':'.6');if(themeMeta)themeMeta.content='rgb('+a[0].join(',')+')';current=idx}
   plane.style.transform=`translateX(${((idx+t)/(secs.length-1)*tw).toFixed(1)}px)`;
   const dy=Math.abs(scrollY-lastY);lastY=scrollY;W.boost=Math.min(.7,W.boost+dy*.0015);}
 addEventListener('scroll',onScroll,{passive:true});addEventListener('resize',onScroll);updateScroll();
@@ -134,5 +135,5 @@ rb.addEventListener('click',()=>{const on=rb.getAttribute('aria-pressed')!=='tru
 addEventListener('scroll',()=>{if(rb.getAttribute('aria-pressed')==='true'){const t=base*night();if(Math.abs(t-target)>.01){target=t;fade()}}},{passive:true});
 
 /* ---------- copy email ---------- */
-$('copy').addEventListener('click',e=>{const b=e.currentTarget,t=$('email').textContent;navigator.clipboard.writeText(t).then(()=>b.textContent='copied',()=>{const r=document.createRange();r.selectNodeContents($('email'));const s=getSelection();s.removeAllRanges();s.addRange(r);b.textContent='selected'});setTimeout(()=>b.textContent='copy',2200)});
+$('copy').addEventListener('click',e=>{const b=e.currentTarget,t=$('email').textContent;navigator.clipboard.writeText(t).then(()=>b.textContent='Copied',()=>{const r=document.createRange();r.selectNodeContents($('email'));const s=getSelection();s.removeAllRanges();s.addRange(r);b.textContent='Selected'});setTimeout(()=>b.textContent='Copy email',2200)});
 })();

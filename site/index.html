@@ -29,7 +29,7 @@
 <div id="clouds" aria-hidden="true"></div>
 <div id="paper" aria-hidden="true"></div>
 
-<nav class="flight" aria-label="Chapters"><div class="track" id="track">
+<nav class="flight" aria-label="Chapters"><div class="track" id="track"><span class="now-label" id="nowLabel" aria-live="polite"></span>
   <svg id="plane" viewBox="0 0 32 32" aria-hidden="true"><path d="M3 17 29 6 21 27 16 19Z" fill="#f7f0df" stroke="#2b2520" stroke-width="1.4" stroke-linejoin="round"/><path d="M16 19 29 6" stroke="#2b2520" stroke-width="1.2"/></svg>
 </div></nav>
 
@@ -39,7 +39,15 @@
   <div class="copy"><div class="col">
     <h1>The boy who<br>drew <i>gods</i><br>and built machines</h1>
     <p class="who">Shashank Mishra. Engineer of systems that are not allowed to fall.</p>
-    <p class="cv">Software Engineer II at Microsoft. Before that, AWS, Razorpay and Publicis Sapient.</p>
+    <ul class="facts" aria-label="Quick facts">
+      <li><b>Software Engineer II</b> at Microsoft</li>
+      <li>Ex-AWS (OpenSearch Serverless) · Razorpay · Publicis Sapient</li>
+      <li>Distributed systems · ingestion &amp; search infrastructure · cost engineering</li>
+      <li>BITS Pilani · CodeChef 5★</li>
+    </ul>
+    <nav class="jump" aria-label="Jump to">
+      <a href="#ch4">Work</a><a href="#ch5">Projects</a><a href="#contact">Contact</a><a href="https://www.linkedin.com/in/shashank-mishra-015a2b116/" target="_blank" rel="noopener">LinkedIn ↗</a>
+    </nav>
     <p class="setup">A story about a star drawn on a cheek, and everyone who kept the kite flying.</p>
     <p class="aside">scroll, and the wind picks up ↓</p>
   </div></div>
@@ -134,6 +142,12 @@
     <blockquote class="epi"><p>“Airplanes are beautiful dreams. Engineers turn dreams into reality.”</p><cite>Caproni · <i>The Wind Rises</i> (2013)</cite></blockquote>
       <header class="ch-head"><span class="num" aria-hidden="true">IV</span><h2>Systems that carry other people’s money and data</h2></header>
       <p>A chemical engineer moving into software has to earn every step. One project led to an internship, then another. Along the way I settled on three rules: design for failure, measure before optimizing, scale deliberately.</p>
+      <ul class="ledger" aria-label="Highlights">
+        <li><b>40% → 90%</b><span>availability in major US regions after launch, AWS</span></li>
+        <li><b>$8.7M</b><span>cut from customer billing by fixing a cost anomaly, AWS</span></li>
+        <li><b>₹6.4 Cr</b><span>first month of Advance Tax Payments, Razorpay</span></li>
+        <li><b>300+</b><span>code reviews, AWS</span></li>
+      </ul>
     </div>
     <div class="logbook" role="list" aria-label="Career logbook">
       <div class="entry" role="listitem"><span class="where">now</span><div><h3>Microsoft</h3><p>Software Engineer II, building cloud infrastructure at scale.</p></div></div>
@@ -300,14 +314,15 @@
     <p>When life feels overwhelming, I go to Rameshwaram and spend hours in Dr. Kalam’s childhood home, now a museum. He grew up on that small island and read more than a thousand books. Then I come back and build the next thing.</p>
     <p class="hand">My grandmother’s rule still guides me: win one day at a time.</p>
     <p>Still on the list: an Ironman, a week of books and cafés in Edinburgh, whales in Antarctica, and time to sketch again, just for love.</p>
-    <h2 style="margin-top:.4em">Say hello</h2>
-    <div class="links">
-      <span class="mail" id="email">shashank.swe.2020@gmail.com</span>
-      <button class="linkbtn" id="copy" type="button">copy</button>
-      <a href="https://www.linkedin.com/in/shashank-mishra-015a2b116/" target="_blank" rel="noopener">LinkedIn</a>
-      <a href="https://github.com/shashankswe2020-ux" target="_blank" rel="noopener">GitHub</a>
-      <a href="https://www.youtube.com/@AskEuler" target="_blank" rel="noopener">Ask Euler</a>
+    <h2 id="contact" style="margin-top:.4em">Say hello</h2>
+    <div class="contact">
+      <a class="btn primary" href="mailto:shashank.swe.2020@gmail.com">Email me</a>
+      <button class="btn" id="copy" type="button" aria-describedby="email">Copy email</button>
+      <a class="btn" href="https://www.linkedin.com/in/shashank-mishra-015a2b116/" target="_blank" rel="noopener">LinkedIn</a>
+      <a class="btn" href="https://github.com/shashankswe2020-ux" target="_blank" rel="noopener">GitHub</a>
+      <a class="btn" href="https://www.youtube.com/@AskEuler" target="_blank" rel="noopener">Ask Euler</a>
     </div>
+    <p class="mail" id="email">shashank.swe.2020@gmail.com</p>
   </div></div>
   <svg class="scene" id="sceneE" viewBox="0 0 1440 420" preserveAspectRatio="xMidYMax slice" role="img" aria-label="Sunrise over the sea, a temple tower on the shore, and the kite, small now, far over the water.">
     <circle cx="720" cy="300" r="120" fill="#f7cf8a"/>
