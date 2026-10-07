@@ -300,14 +300,63 @@ footer{text-align:center;padding:20px 16px 80px;font-family:var(--f-hand);font-w
       </a>
     </div>
   </div>
-  <svg class="scene" id="scene5" viewBox="0 0 1440 360" preserveAspectRatio="xMidYMax slice" role="img" aria-label="A workshop hangar glowing at dusk, a lamp flickering over the workbench.">
+  <svg class="scene" id="scene5" viewBox="0 0 1440 360" preserveAspectRatio="xMidYMax slice" role="img" aria-label="Inside a workshop hangar at dusk: a pendant lamp pours warm light over a workbench with a laptop, a model plane and rolled blueprints, tools hanging on the wall.">
+    <defs>
+      <clipPath id="hangar5"><path d="M210 360 V200 Q720 40 1230 200 V360Z"/></clipPath>
+      <radialGradient id="glowG5" cx="720" cy="150" r="300" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#fff1c4" stop-opacity=".9"/><stop offset=".35" stop-color="#f8d98a" stop-opacity=".45"/><stop offset="1" stop-color="#f8d98a" stop-opacity="0"/></radialGradient>
+      <linearGradient id="beamG5" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fff3cf" stop-opacity=".55"/><stop offset="1" stop-color="#fff3cf" stop-opacity=".04"/></linearGradient>
+      <radialGradient id="poolG5" cx=".5" cy=".5" r=".5"><stop offset="0" stop-color="#fff0c2" stop-opacity=".75"/><stop offset="1" stop-color="#fff0c2" stop-opacity="0"/></radialGradient>
+      <linearGradient id="floorG5" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#b9774a"/><stop offset="1" stop-color="#8d5536"/></linearGradient>
+    </defs>
+    <!-- shell -->
     <path d="M140 360 V170 Q720 -20 1300 170 V360Z" fill="#2c2430"/>
-    <path d="M210 360 V200 Q720 40 1230 200 V360Z" fill="#e2a066"/>
-    <circle id="glow5" cx="720" cy="150" r="170" fill="#f8d98a" opacity=".35"/>
-    <path d="M720 40 V110" stroke="#2c2430" stroke-width="3"/><path d="M700 110 h40 l-10 18 h-20z" fill="#2c2430"/>
+    <path d="M210 360 V200 Q720 40 1230 200 V360Z" fill="#d9925a"/>
+    <g clip-path="url(#hangar5)">
+      <!-- roof ribs + back-wall planks -->
+      <g fill="none" stroke="#b8743f" stroke-width="2" opacity=".55"><path d="M210 222 Q720 72 1230 222"/><path d="M210 250 Q720 112 1230 250"/></g>
+      <g stroke="#c98350" stroke-width="1.5" opacity=".5"><path d="M330 360 V160 M460 360 V118 M590 360 V100 M850 360 V100 M980 360 V118 M1110 360 V160"/></g>
+      <!-- floor -->
+      <path d="M210 332 H1230 V360 H210Z" fill="url(#floorG5)"/>
+      <path d="M210 332 H1230" stroke="#6e4430" stroke-width="2" opacity=".6"/>
+      <!-- pegboard with tools (left wall) -->
+      <rect x="388" y="176" width="124" height="86" rx="3" fill="#c7854f" stroke="#8a5534" stroke-width="2"/>
+      <g fill="#8a5534" opacity=".55"><circle cx="404" cy="190" r="1.6"/><circle cx="428" cy="190" r="1.6"/><circle cx="452" cy="190" r="1.6"/><circle cx="476" cy="190" r="1.6"/><circle cx="500" cy="190" r="1.6"/><circle cx="404" cy="248" r="1.6"/><circle cx="500" cy="248" r="1.6"/></g>
+      <g fill="#2c2430"><path d="M410 196 h6 v34 h-6z M405 192 h16 v7 h-16z"/><path d="M436 194 l5 0 l2 46 l-9 0z"/><circle cx="438" cy="194" r="7" fill="none" stroke="#2c2430" stroke-width="3"/><path d="M462 196 h3 v44 h-3z M456 196 h15 l-2 8 h-11z"/></g>
+      <!-- half-built kite frame -->
+      <g transform="translate(488 214) rotate(-14)" stroke="#2c2430" stroke-width="2" fill="none"><path d="M0 -24 L14 0 L0 28 L-14 0Z" fill="#c4673a" fill-opacity=".55"/><path d="M0 -24 V28 M-14 0 H14"/></g>
+      <!-- shelf with jars (right wall) -->
+      <rect x="938" y="214" width="150" height="7" fill="#5a3f30"/>
+      <path d="M948 221 l10 14 M1078 221 l-10 14" stroke="#5a3f30" stroke-width="3"/>
+      <g><rect x="950" y="190" width="18" height="24" rx="3" fill="#7fa3a0" opacity=".85"/><rect x="974" y="196" width="16" height="18" rx="3" fill="#c4673a" opacity=".8"/><rect x="996" y="186" width="22" height="28" rx="3" fill="#e7cf8f" opacity=".85"/><path d="M1028 214 v-30 l6 -6 h14 v36z" fill="#2c2430" opacity=".8"/><rect x="1056" y="194" width="22" height="20" rx="2" fill="#4f6b45" opacity=".85"/></g>
+      <!-- light: glow, beam, pool -->
+      <circle id="glow5" cx="720" cy="150" r="300" fill="url(#glowG5)" opacity=".35"/>
+      <path d="M702 160 L738 160 L860 300 L580 300Z" fill="url(#beamG5)"/>
+      <ellipse cx="720" cy="300" rx="190" ry="12" fill="url(#poolG5)"/>
+    </g>
+    <!-- lamp -->
+    <path d="M720 120 V138" stroke="#2c2430" stroke-width="2.5"/>
+    <path d="M714 138 h12 v6 h-12z" fill="#2c2430"/>
+    <path d="M700 160 Q702 144 720 143 Q738 144 740 160Z" fill="#2c2430"/>
+    <ellipse cx="720" cy="160" rx="20" ry="3" fill="#4a3b45"/>
+    <circle cx="720" cy="162" r="6.5" fill="#fff6d8"/>
     <g id="motes" fill="#fff6d8"></g>
-    <rect x="360" y="300" width="720" height="14" fill="#5a3f30"/><rect x="380" y="314" width="10" height="46" fill="#5a3f30"/><rect x="1050" y="314" width="10" height="46" fill="#5a3f30"/>
-    <g stroke="#2c2430" stroke-width="2.5" fill="none"><path d="M480 300 v-36 h70 v36 M640 300 l22 -44 l34 44 M590 262 h26"/></g>
+    <!-- bench -->
+    <ellipse cx="720" cy="336" rx="360" ry="6" fill="#2c2430" opacity=".22"/>
+    <rect x="380" y="314" width="12" height="22" fill="#4b3427"/><rect x="1048" y="314" width="12" height="22" fill="#4b3427"/>
+    <rect x="392" y="322" width="656" height="6" fill="#4b3427"/>
+    <rect x="360" y="300" width="720" height="14" rx="2" fill="#5a3f30"/>
+    <rect x="360" y="300" width="720" height="3" rx="1.5" fill="#7a5640"/>
+    <!-- on the bench: blueprints -->
+    <g transform="translate(450 292)"><rect x="0" y="0" width="58" height="8" rx="4" fill="#2a5f8c"/><rect x="6" y="-7" width="52" height="8" rx="4" fill="#1f4f78"/><path d="M0 4 a4 4 0 0 0 0 0" /><circle cx="58" cy="4" r="4" fill="#e9f1f7" opacity=".8"/><circle cx="58" cy="-3" r="4" fill="#e9f1f7" opacity=".7"/></g>
+    <!-- laptop -->
+    <g transform="translate(560 300)"><path d="M6 -2 L14 -44 H86 L78 -2Z" fill="#2c2430"/><path d="M12 -6 L18 -40 H82 L76 -6Z" fill="#e8f0d8"/><g stroke="#4f6b45" stroke-width="1.6" opacity=".8"><path d="M24 -32 h28 M24 -26 h40 M28 -20 h22 M24 -14 h32"/></g><rect x="-4" y="-3" width="100" height="4" rx="2" fill="#4a3b45"/></g>
+    <!-- mug -->
+    <g transform="translate(676 300)"><path d="M0 -20 h18 v18 a2 2 0 0 1 -2 2 h-14 a2 2 0 0 1 -2 -2z" fill="#c4673a"/><path d="M18 -15 a5 5 0 0 1 0 10" fill="none" stroke="#c4673a" stroke-width="3"/><path d="M5 -26 q3 -5 0 -10 M12 -26 q3 -5 0 -10" stroke="#fff6d8" stroke-width="1.4" fill="none" opacity=".6"/></g>
+    <!-- model plane on a stand -->
+    <g transform="translate(790 300)"><path d="M28 0 v-34" stroke="#2c2430" stroke-width="2.5"/><rect x="14" y="-3" width="28" height="3" rx="1.5" fill="#2c2430"/>
+      <g transform="translate(0 -42) rotate(-6 28 0)"><path d="M0 0 h48 l10 -7 h5 l-5 12 h-58z" fill="#c4673a" stroke="#2c2430" stroke-width="1.2"/><path d="M18 0 l8 -14 h6 l-3 14 M20 4 l-4 9 h6 l8 -9" fill="#f3ead6" stroke="#2c2430" stroke-width="1.2"/><circle cx="-2" cy="2" r="3" fill="#2c2430"/></g></g>
+    <!-- toolbox -->
+    <g transform="translate(902 300)"><rect x="0" y="-22" width="64" height="22" rx="2" fill="#4f6b45"/><rect x="0" y="-22" width="64" height="6" fill="#3f5838"/><path d="M22 -22 v-6 h20 v6" fill="none" stroke="#2c2430" stroke-width="3"/><rect x="28" y="-14" width="8" height="4" rx="1" fill="#e7cf8f"/></g>
   </svg>
 </section>
 
@@ -398,7 +447,7 @@ const palms=[];[[1040,330,120],[1100,320,140],[1160,334,110]].forEach(([x,y,h])=
 for(let x=-40;x<1500;x+=64)el('circle',{cx:x,cy:200+((x*37)%40),r:46+((x*29+3000)%44)},$('cloudsea'));el('rect',{x:0,y:220,width:1440,height:80},$('cloudsea'));
 const wl=[];for(let i=0;i<5;i++)wl.push({p:el('path',{},$('windP')),y:120+i*70,o:rnd()*1700,s:.6+rnd()*.8});
 const puffs=[];for(let i=0;i<16;i++)puffs.push({c:el('circle',{r:0,opacity:0},$('smoke')),age:i/16});
-const motes=[];for(let i=0;i<22;i++)motes.push({c:el('circle',{r:1.2+rnd()*1.6},$('motes')),x:560+rnd()*320,y:120+rnd()*170,p:rnd()*6});
+const motes=[];for(let i=0;i<26;i++)motes.push({c:el('circle',{r:1+rnd()*1.6},$('motes')),y:170+rnd()*120,u:rnd()*2-1,p:rnd()*6});
 const envs=[];for(let i=0;i<5;i++){const g=el('g',{},$('envs'));const inner=el('g',{},g);el('rect',{x:-23,y:-15,width:46,height:30,fill:'#f3ead6',stroke:'#2b2520','stroke-width':1},inner);el('path',{d:'M-23 -15 L0 2 L23 -15',fill:'none',stroke:'#2b2520','stroke-width':1},inner);envs.push({g,inner,x:rnd()*1440,y:50+rnd()*150,p:rnd()*6})}
 const cl=$('clouds'),clouds=[];
 ['cloud1','cloud2','cloud3','cloud2','cloud1','cloud3'].forEach(n=>{const im=new Image();im.src=`tex/${n}.webp`;im.alt='';const w=220+rnd()*260;im.style.width=w+'px';cl.appendChild(im);clouds.push({im,w,x:rnd()*innerWidth,y:5+rnd()*70,depth:.3+rnd()*.7})});
@@ -449,7 +498,7 @@ let sx=-.35;
 function scooterStep(t,w,dt){sx+=dt*.035;if(sx>1.1)sx=-.4;const im=$('scooterI');im.style.left=(sx*100).toFixed(2)+'%';im.style.transform=`translateY(${(Math.sin(t*9)*1.2+Math.sin(t*2.3)*1.5).toFixed(2)}px) rotate(${(Math.sin(t*2.3)*.4).toFixed(2)}deg)`;}
 let p4=-200;function scene4(t,w,dt){p4+=dt*(60+40*w);if(p4>1700)p4=-200;$('plane4').setAttribute('transform',`translate(${p4.toFixed(1)} ${(150-p4*.05+Math.sin(t*1.4)*6*w).toFixed(1)}) rotate(${(-4+Math.sin(t*1.4+1)*3*w).toFixed(2)})`)}
 function scene5(t,w,dt){$('glow5').setAttribute('opacity',(.3+.07*Math.sin(t*13)+.04*Math.sin(t*31)+.04*(Math.random()-.5)).toFixed(3));
-  motes.forEach(m=>{m.x+=dt*(8+w*14);m.y+=Math.sin(t+m.p)*.15;if(m.x>900)m.x=560;m.c.setAttribute('cx',m.x.toFixed(1));m.c.setAttribute('cy',m.y.toFixed(1));m.c.setAttribute('opacity',(.35+.35*Math.sin(t*2+m.p)).toFixed(2))})}
+  motes.forEach(m=>{const half=18+(m.y-160)*.85;m.u+=dt*(.05+w*.09);if(m.u>1)m.u=-1;m.y+=Math.sin(t*.8+m.p)*.12;m.c.setAttribute('cx',(720+m.u*half).toFixed(1));m.c.setAttribute('cy',m.y.toFixed(1));m.c.setAttribute('opacity',((.3+.4*Math.max(0,Math.sin(t*1.6+m.p)))*(1-Math.abs(m.u)*.6)).toFixed(2))})}
 function scene6(t,w,dt){envs.forEach(e=>{e.x+=dt*(40+90*w);if(e.x>1520)e.x=-60;e.g.setAttribute('transform',`translate(${e.x.toFixed(1)} ${(e.y+Math.sin(t*1.1+e.p)*16*w).toFixed(1)})`);e.inner.setAttribute('transform',`rotate(${(Math.sin(t*2.4+e.p)*22*w).toFixed(1)}) scale(1 ${(.75+.25*Math.cos(t*3+e.p)).toFixed(2)})`)})}
 function sceneE(t,w,dt){wave('seaE1',300,4,.011,.9,t,w,420);wave('seaE2',330,5,.008,-1.2,t,w,420);
   const kx=1170+Math.sin(t*.7)*16*w,ky=70+Math.sin(t*1.3)*9*w-w*10;$('kiteE').setAttribute('transform',`translate(${kx.toFixed(1)} ${ky.toFixed(1)}) rotate(${(-18-10*w).toFixed(1)})`);$('stringE').setAttribute('d',`M975 234 Q${(1075+40*(1.2-w)).toFixed(1)} ${(170+60*(1.2-w)).toFixed(1)} ${kx.toFixed(1)} ${(ky+12).toFixed(1)}`);

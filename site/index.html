@@ -178,14 +178,63 @@
       </a>
     </div>
   </div>
-  <svg class="scene" id="scene5" viewBox="0 0 1440 360" preserveAspectRatio="xMidYMax slice" role="img" aria-label="A workshop hangar glowing at dusk, a lamp flickering over the workbench.">
+  <svg class="scene" id="scene5" viewBox="0 0 1440 360" preserveAspectRatio="xMidYMax slice" role="img" aria-label="Inside a workshop hangar at dusk: a pendant lamp pours warm light over a workbench with a laptop, a model plane and rolled blueprints, tools hanging on the wall.">
+    <defs>
+      <clipPath id="hangar5"><path d="M210 360 V200 Q720 40 1230 200 V360Z"/></clipPath>
+      <radialGradient id="glowG5" cx="720" cy="150" r="300" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#fff1c4" stop-opacity=".9"/><stop offset=".35" stop-color="#f8d98a" stop-opacity=".45"/><stop offset="1" stop-color="#f8d98a" stop-opacity="0"/></radialGradient>
+      <linearGradient id="beamG5" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fff3cf" stop-opacity=".55"/><stop offset="1" stop-color="#fff3cf" stop-opacity=".04"/></linearGradient>
+      <radialGradient id="poolG5" cx=".5" cy=".5" r=".5"><stop offset="0" stop-color="#fff0c2" stop-opacity=".75"/><stop offset="1" stop-color="#fff0c2" stop-opacity="0"/></radialGradient>
+      <linearGradient id="floorG5" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#b9774a"/><stop offset="1" stop-color="#8d5536"/></linearGradient>
+    </defs>
+    <!-- shell -->
     <path d="M140 360 V170 Q720 -20 1300 170 V360Z" fill="#2c2430"/>
-    <path d="M210 360 V200 Q720 40 1230 200 V360Z" fill="#e2a066"/>
-    <circle id="glow5" cx="720" cy="150" r="170" fill="#f8d98a" opacity=".35"/>
-    <path d="M720 40 V110" stroke="#2c2430" stroke-width="3"/><path d="M700 110 h40 l-10 18 h-20z" fill="#2c2430"/>
+    <path d="M210 360 V200 Q720 40 1230 200 V360Z" fill="#d9925a"/>
+    <g clip-path="url(#hangar5)">
+      <!-- roof ribs + back-wall planks -->
+      <g fill="none" stroke="#b8743f" stroke-width="2" opacity=".55"><path d="M210 222 Q720 72 1230 222"/><path d="M210 250 Q720 112 1230 250"/></g>
+      <g stroke="#c98350" stroke-width="1.5" opacity=".5"><path d="M330 360 V160 M460 360 V118 M590 360 V100 M850 360 V100 M980 360 V118 M1110 360 V160"/></g>
+      <!-- floor -->
+      <path d="M210 332 H1230 V360 H210Z" fill="url(#floorG5)"/>
+      <path d="M210 332 H1230" stroke="#6e4430" stroke-width="2" opacity=".6"/>
+      <!-- pegboard with tools (left wall) -->
+      <rect x="388" y="176" width="124" height="86" rx="3" fill="#c7854f" stroke="#8a5534" stroke-width="2"/>
+      <g fill="#8a5534" opacity=".55"><circle cx="404" cy="190" r="1.6"/><circle cx="428" cy="190" r="1.6"/><circle cx="452" cy="190" r="1.6"/><circle cx="476" cy="190" r="1.6"/><circle cx="500" cy="190" r="1.6"/><circle cx="404" cy="248" r="1.6"/><circle cx="500" cy="248" r="1.6"/></g>
+      <g fill="#2c2430"><path d="M410 196 h6 v34 h-6z M405 192 h16 v7 h-16z"/><path d="M436 194 l5 0 l2 46 l-9 0z"/><circle cx="438" cy="194" r="7" fill="none" stroke="#2c2430" stroke-width="3"/><path d="M462 196 h3 v44 h-3z M456 196 h15 l-2 8 h-11z"/></g>
+      <!-- half-built kite frame -->
+      <g transform="translate(488 214) rotate(-14)" stroke="#2c2430" stroke-width="2" fill="none"><path d="M0 -24 L14 0 L0 28 L-14 0Z" fill="#c4673a" fill-opacity=".55"/><path d="M0 -24 V28 M-14 0 H14"/></g>
+      <!-- shelf with jars (right wall) -->
+      <rect x="938" y="214" width="150" height="7" fill="#5a3f30"/>
+      <path d="M948 221 l10 14 M1078 221 l-10 14" stroke="#5a3f30" stroke-width="3"/>
+      <g><rect x="950" y="190" width="18" height="24" rx="3" fill="#7fa3a0" opacity=".85"/><rect x="974" y="196" width="16" height="18" rx="3" fill="#c4673a" opacity=".8"/><rect x="996" y="186" width="22" height="28" rx="3" fill="#e7cf8f" opacity=".85"/><path d="M1028 214 v-30 l6 -6 h14 v36z" fill="#2c2430" opacity=".8"/><rect x="1056" y="194" width="22" height="20" rx="2" fill="#4f6b45" opacity=".85"/></g>
+      <!-- light: glow, beam, pool -->
+      <circle id="glow5" cx="720" cy="150" r="300" fill="url(#glowG5)" opacity=".35"/>
+      <path d="M702 160 L738 160 L860 300 L580 300Z" fill="url(#beamG5)"/>
+      <ellipse cx="720" cy="300" rx="190" ry="12" fill="url(#poolG5)"/>
+    </g>
+    <!-- lamp -->
+    <path d="M720 120 V138" stroke="#2c2430" stroke-width="2.5"/>
+    <path d="M714 138 h12 v6 h-12z" fill="#2c2430"/>
+    <path d="M700 160 Q702 144 720 143 Q738 144 740 160Z" fill="#2c2430"/>
+    <ellipse cx="720" cy="160" rx="20" ry="3" fill="#4a3b45"/>
+    <circle cx="720" cy="162" r="6.5" fill="#fff6d8"/>
     <g id="motes" fill="#fff6d8"></g>
-    <rect x="360" y="300" width="720" height="14" fill="#5a3f30"/><rect x="380" y="314" width="10" height="46" fill="#5a3f30"/><rect x="1050" y="314" width="10" height="46" fill="#5a3f30"/>
-    <g stroke="#2c2430" stroke-width="2.5" fill="none"><path d="M480 300 v-36 h70 v36 M640 300 l22 -44 l34 44 M590 262 h26"/></g>
+    <!-- bench -->
+    <ellipse cx="720" cy="336" rx="360" ry="6" fill="#2c2430" opacity=".22"/>
+    <rect x="380" y="314" width="12" height="22" fill="#4b3427"/><rect x="1048" y="314" width="12" height="22" fill="#4b3427"/>
+    <rect x="392" y="322" width="656" height="6" fill="#4b3427"/>
+    <rect x="360" y="300" width="720" height="14" rx="2" fill="#5a3f30"/>
+    <rect x="360" y="300" width="720" height="3" rx="1.5" fill="#7a5640"/>
+    <!-- on the bench: blueprints -->
+    <g transform="translate(450 292)"><rect x="0" y="0" width="58" height="8" rx="4" fill="#2a5f8c"/><rect x="6" y="-7" width="52" height="8" rx="4" fill="#1f4f78"/><path d="M0 4 a4 4 0 0 0 0 0" /><circle cx="58" cy="4" r="4" fill="#e9f1f7" opacity=".8"/><circle cx="58" cy="-3" r="4" fill="#e9f1f7" opacity=".7"/></g>
+    <!-- laptop -->
+    <g transform="translate(560 300)"><path d="M6 -2 L14 -44 H86 L78 -2Z" fill="#2c2430"/><path d="M12 -6 L18 -40 H82 L76 -6Z" fill="#e8f0d8"/><g stroke="#4f6b45" stroke-width="1.6" opacity=".8"><path d="M24 -32 h28 M24 -26 h40 M28 -20 h22 M24 -14 h32"/></g><rect x="-4" y="-3" width="100" height="4" rx="2" fill="#4a3b45"/></g>
+    <!-- mug -->
+    <g transform="translate(676 300)"><path d="M0 -20 h18 v18 a2 2 0 0 1 -2 2 h-14 a2 2 0 0 1 -2 -2z" fill="#c4673a"/><path d="M18 -15 a5 5 0 0 1 0 10" fill="none" stroke="#c4673a" stroke-width="3"/><path d="M5 -26 q3 -5 0 -10 M12 -26 q3 -5 0 -10" stroke="#fff6d8" stroke-width="1.4" fill="none" opacity=".6"/></g>
+    <!-- model plane on a stand -->
+    <g transform="translate(790 300)"><path d="M28 0 v-34" stroke="#2c2430" stroke-width="2.5"/><rect x="14" y="-3" width="28" height="3" rx="1.5" fill="#2c2430"/>
+      <g transform="translate(0 -42) rotate(-6 28 0)"><path d="M0 0 h48 l10 -7 h5 l-5 12 h-58z" fill="#c4673a" stroke="#2c2430" stroke-width="1.2"/><path d="M18 0 l8 -14 h6 l-3 14 M20 4 l-4 9 h6 l8 -9" fill="#f3ead6" stroke="#2c2430" stroke-width="1.2"/><circle cx="-2" cy="2" r="3" fill="#2c2430"/></g></g>
+    <!-- toolbox -->
+    <g transform="translate(902 300)"><rect x="0" y="-22" width="64" height="22" rx="2" fill="#4f6b45"/><rect x="0" y="-22" width="64" height="6" fill="#3f5838"/><path d="M22 -22 v-6 h20 v6" fill="none" stroke="#2c2430" stroke-width="3"/><rect x="28" y="-14" width="8" height="4" rx="1" fill="#e7cf8f"/></g>
   </svg>
 </section>
 

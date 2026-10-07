@@ -18,7 +18,7 @@ const palms=[];[[1040,330,120],[1100,320,140],[1160,334,110]].forEach(([x,y,h])=
 for(let x=-40;x<1500;x+=64)el('circle',{cx:x,cy:200+((x*37)%40),r:46+((x*29+3000)%44)},$('cloudsea'));el('rect',{x:0,y:220,width:1440,height:80},$('cloudsea'));
 const wl=[];for(let i=0;i<5;i++)wl.push({p:el('path',{},$('windP')),y:120+i*70,o:rnd()*1700,s:.6+rnd()*.8});
 const puffs=[];for(let i=0;i<16;i++)puffs.push({c:el('circle',{r:0,opacity:0},$('smoke')),age:i/16});
-const motes=[];for(let i=0;i<22;i++)motes.push({c:el('circle',{r:1.2+rnd()*1.6},$('motes')),x:560+rnd()*320,y:120+rnd()*170,p:rnd()*6});
+const motes=[];for(let i=0;i<26;i++)motes.push({c:el('circle',{r:1+rnd()*1.6},$('motes')),y:170+rnd()*120,u:rnd()*2-1,p:rnd()*6});
 const envs=[];for(let i=0;i<5;i++){const g=el('g',{},$('envs'));const inner=el('g',{},g);el('rect',{x:-23,y:-15,width:46,height:30,fill:'#f3ead6',stroke:'#2b2520','stroke-width':1},inner);el('path',{d:'M-23 -15 L0 2 L23 -15',fill:'none',stroke:'#2b2520','stroke-width':1},inner);envs.push({g,inner,x:rnd()*1440,y:50+rnd()*150,p:rnd()*6})}
 const cl=$('clouds'),clouds=[];
 ['cloud1','cloud2','cloud3','cloud2','cloud1','cloud3'].forEach(n=>{const im=new Image();im.src=`/tex/${n}.webp`;im.alt='';const w=220+rnd()*260;im.style.width=w+'px';cl.appendChild(im);clouds.push({im,w,x:rnd()*innerWidth,y:5+rnd()*70,depth:.3+rnd()*.7})});
@@ -69,7 +69,7 @@ let sx=-.35;
 function scooterStep(t,w,dt){sx+=dt*.035;if(sx>1.1)sx=-.4;const im=$('scooterI');im.style.left=(sx*100).toFixed(2)+'%';im.style.transform=`translateY(${(Math.sin(t*9)*1.2+Math.sin(t*2.3)*1.5).toFixed(2)}px) rotate(${(Math.sin(t*2.3)*.4).toFixed(2)}deg)`;}
 let p4=-200;function scene4(t,w,dt){p4+=dt*(60+40*w);if(p4>1700)p4=-200;$('plane4').setAttribute('transform',`translate(${p4.toFixed(1)} ${(150-p4*.05+Math.sin(t*1.4)*6*w).toFixed(1)}) rotate(${(-4+Math.sin(t*1.4+1)*3*w).toFixed(2)})`)}
 function scene5(t,w,dt){$('glow5').setAttribute('opacity',(.3+.07*Math.sin(t*13)+.04*Math.sin(t*31)+.04*(Math.random()-.5)).toFixed(3));
-  motes.forEach(m=>{m.x+=dt*(8+w*14);m.y+=Math.sin(t+m.p)*.15;if(m.x>900)m.x=560;m.c.setAttribute('cx',m.x.toFixed(1));m.c.setAttribute('cy',m.y.toFixed(1));m.c.setAttribute('opacity',(.35+.35*Math.sin(t*2+m.p)).toFixed(2))})}
+  motes.forEach(m=>{const half=18+(m.y-160)*.85;m.u+=dt*(.05+w*.09);if(m.u>1)m.u=-1;m.y+=Math.sin(t*.8+m.p)*.12;m.c.setAttribute('cx',(720+m.u*half).toFixed(1));m.c.setAttribute('cy',m.y.toFixed(1));m.c.setAttribute('opacity',((.3+.4*Math.max(0,Math.sin(t*1.6+m.p)))*(1-Math.abs(m.u)*.6)).toFixed(2))})}
 function scene6(t,w,dt){envs.forEach(e=>{e.x+=dt*(40+90*w);if(e.x>1520)e.x=-60;e.g.setAttribute('transform',`translate(${e.x.toFixed(1)} ${(e.y+Math.sin(t*1.1+e.p)*16*w).toFixed(1)})`);e.inner.setAttribute('transform',`rotate(${(Math.sin(t*2.4+e.p)*22*w).toFixed(1)}) scale(1 ${(.75+.25*Math.cos(t*3+e.p)).toFixed(2)})`)})}
 function sceneE(t,w,dt){wave('seaE1',300,4,.011,.9,t,w,420);wave('seaE2',330,5,.008,-1.2,t,w,420);
   const kx=1170+Math.sin(t*.7)*16*w,ky=70+Math.sin(t*1.3)*9*w-w*10;$('kiteE').setAttribute('transform',`translate(${kx.toFixed(1)} ${ky.toFixed(1)}) rotate(${(-18-10*w).toFixed(1)})`);$('stringE').setAttribute('d',`M975 234 Q${(1075+40*(1.2-w)).toFixed(1)} ${(170+60*(1.2-w)).toFixed(1)} ${kx.toFixed(1)} ${(ky+12).toFixed(1)}`);
