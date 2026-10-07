@@ -1,170 +1,255 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="theme-color" content="#0b0c0f" />
-    <title>Shashank Mishra — Software Engineer</title>
-    <meta
-      name="description"
-      content="Shashank Mishra is a software engineer building reliable distributed systems, cloud infrastructure, and high-throughput platforms."
-    />
-    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%23d7ff3f'/%3E%3Cpath d='M8 20h7c1 0 2-.6 2-1.5S16 17 15 17h-3c-3 0-5-1.8-5-4.5S9 8 12 8h11v4H12c-.7 0-1 .2-1 .5s.3.5 1 .5h3c3.5 0 6 2 6 5.5S18.5 24 15 24H8z' fill='%230b0c0f'/%3E%3C/svg%3E" />
-    <link rel="stylesheet" href="/src/styles.css" />
-  </head>
-  <body data-barba="wrapper">
-    <div class="ambient-glow" aria-hidden="true"></div>
-    <header class="nav">
-      <div class="nav-inner">
-        <a href="./" class="nav-logo" aria-label="Shashank Mishra, home">
-          <span class="logo-mark">S</span>
-          <span>Shashank Mishra</span>
-        </a>
-        <nav class="nav-links" aria-label="Main navigation">
-          <a href="./" data-page="home" class="active">Index</a>
-          <a href="./work.html" data-page="work">Experience</a>
-          <a href="./projects.html" data-page="projects">Projects</a>
-          <a href="./contact.html" data-page="contact">Contact</a>
-        </nav>
-        <a class="nav-availability" href="mailto:shashank.swe.2020@gmail.com">
-          <span class="status-dot"></span>
-          Let&rsquo;s talk
-        </a>
-      </div>
-    </header>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Shashank Mishra · The Wind and the Kite</title>
+<meta name="description" content="Shashank Mishra, Software Engineer II at Microsoft (ex-AWS, Razorpay). The story of a boy who drew gods and built machines: distributed systems, open-source tools, and passing the star forward.">
+<meta name="theme-color" content="#f1d29a">
+<link rel="canonical" href="https://shashankmishra.bio/">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://shashankmishra.bio/">
+<meta property="og:title" content="Shashank Mishra · The Wind and the Kite">
+<meta property="og:description" content="The boy who drew gods and built machines. Software Engineer II at Microsoft, ex-AWS and Razorpay.">
+<meta property="og:image" content="https://shashankmishra.bio/chars/kite_boy.webp">
+<meta name="twitter:card" content="summary">
+<link rel="icon" href="/tex/kite.webp" type="image/webp">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IM+Fell+English:ital@0;1&family=Alegreya:ital,wght@0,400;0,500;1,400&family=Kalam:wght@300;400&display=swap">
+<link rel="stylesheet" href="/src/styles.css">
+</head>
+<body>
+<div id="sky"></div>
+<div id="clouds" aria-hidden="true"></div>
+<div id="paper" aria-hidden="true"></div>
 
-    <div class="transition-overlay" aria-hidden="true"></div>
+<nav class="flight" aria-label="Chapters"><div class="track" id="track">
+  <svg id="plane" viewBox="0 0 32 32" aria-hidden="true"><path d="M3 17 29 6 21 27 16 19Z" fill="#f7f0df" stroke="#2b2520" stroke-width="1.4" stroke-linejoin="round"/><path d="M16 19 29 6" stroke="#2b2520" stroke-width="1.2"/></svg>
+</div></nav>
 
-    <main data-barba="container" data-barba-namespace="home">
-      <section class="hero">
-        <canvas id="hero-canvas" aria-hidden="true"></canvas>
-        <div class="hero-grid" aria-hidden="true"></div>
-        <div class="hero-content">
-          <div class="hero-topline">
-            <p class="hero-eyebrow">Software Engineer · Bengaluru, India</p>
-            <p class="hero-index">Portfolio / <span data-year></span></p>
-          </div>
-          <h1 class="hero-title" data-split>Engineering systems for the real world.</h1>
-          <div class="hero-bottom">
-            <p class="hero-sub">
-              I&rsquo;m Shashank, an SDE 2 at Microsoft. I design cloud platforms that
-              stay fast, observable, and reliable when the traffic gets unpredictable.
-            </p>
-            <a href="./work.html" class="hero-cta">
-              Explore my work
-              <span class="arrow" aria-hidden="true">↗</span>
-            </a>
-          </div>
-        </div>
-        <div class="scroll-cue" aria-hidden="true">
-          <span>Scroll to explore</span>
-          <span class="scroll-line"></span>
-        </div>
-      </section>
+<main>
+<!-- PROLOGUE · Once upon a time -->
+<section class="chapter" id="prologue" data-sky="#f1d29a,#f8ebd0" data-name="Prologue">
+  <div class="copy"><div class="col">
+    <h1>The boy who<br>drew <i>gods</i><br>and built machines</h1>
+    <p class="who">Shashank Mishra. Engineer of systems that are not allowed to fall.</p>
+    <p class="cv">Software Engineer II at Microsoft. Before that, AWS, Razorpay and Publicis Sapient.</p>
+    <p class="setup">A story about a star drawn on a cheek, and everyone who kept the kite flying.</p>
+    <p class="aside">scroll, and the wind picks up ↓</p>
+  </div></div>
+  <svg class="scene" id="sceneP" viewBox="0 0 1440 760" preserveAspectRatio="xMidYMax slice" role="img" aria-label="Painted rooftops at golden hour. A boy on a roof flies a kite that tugs against the wind.">
+    <circle cx="1210" cy="250" r="120" fill="#f6c676" opacity=".55"/>
+    <g id="windP" stroke="#fff" stroke-width="2" fill="none" stroke-linecap="round"></g>
+    <path d="M0 520 C300 480 600 510 900 490 S1300 470 1440 500 V760 H0Z" fill="#d9b184" opacity=".5"/>
+    <g id="roofsP"></g>
+    <path d="M1030 600 l30 -110 l30 110z" fill="#6e5140"/><circle cx="1060" cy="484" r="7" fill="#c4673a"/>
+    <rect x="440" y="566" width="300" height="200" fill="#7f604a"/><rect x="434" y="558" width="312" height="12" rx="2" fill="#6e5140"/>
+    <g id="boyP"><image href="/chars/kite_boy.webp" x="480" y="356" width="150" height="212"><title>A boy flying a kite with his German Shepherd beside him</title></image></g>
+    <path id="string" fill="none" stroke="#2b2520" stroke-width="1.3" opacity=".65"/>
+    <path id="tail" fill="none" stroke="#c4673a" stroke-width="3" stroke-linecap="round"/>
+    <g id="bows" fill="#c4673a"></g>
+    <g id="kite"><image href="/tex/kite.webp" x="-55" y="-66" width="110" height="157"/></g>
+  </svg>
+</section>
 
-      <div class="home-content wrapper">
-        <section class="intro section" data-reveal>
-          <div class="section-label">
-            <span>01</span>
-            <span>Profile</span>
-          </div>
-          <div class="intro-copy">
-            <p class="statement">
-              From payment rails to serverless search, I turn complex infrastructure
-              problems into systems teams can trust.
-            </p>
-            <div class="intro-detail">
-              <p>
-                My work sits at the intersection of distributed systems, performance,
-                and product impact. I care about graceful failure, useful telemetry,
-                and making every engineering trade-off explicit.
-              </p>
-              <a class="text-link" href="./work.html">More about my experience <span>→</span></a>
-            </div>
-          </div>
-        </section>
+<!-- I · Every day -->
+<section class="chapter" id="ch1" data-sky="#9fb4cc,#f2c9a0" data-name="I · The 4 a.m. train">
+  <div class="copy"><div class="col">
+    <p class="spine">Every day, his father worked so his son could study.</p>
+    <blockquote class="epi"><p>“Just follow your heart and keep smiling.”</p><cite>Kokiri · Kiki's Delivery Service (1989)</cite></blockquote>
+    <header class="ch-head"><span class="num" aria-hidden="true">I</span><h2>A father who caught the first train out</h2></header>
+    <p>My father had a degree in mathematics and once dreamed of becoming an engineer. Money and circumstance held him back. Instead, he caught the 4 a.m. train to work in nearby cities, and once rode his scooter with a broken leg to teach his tuition class, still smiling.</p>
+    <p>When I cleared the entrance exam for the best school in the city, one of only two students from my school to get in, he came home with a big box of chocolates. Against family pressure, he paid more than a quarter of his monthly salary to send me there. He never once reminded me of that sacrifice.</p>
+    <p>In sixth grade I became his tech support: Excel expense sheets, his first ATM card, his first smartphone, then WhatsApp. To him it felt like magic. For me, it was where my joy of teaching began.</p>
+    <p>I drew gods: Saraswati with her veena, Krishna with his flute. After I won my class drawing competition, the principal asked what I wanted to become. I said, “M.F. Husain.” The class burst out laughing, and I started to cry. My class teacher called me aside, drew a little star on my cheek with her pen, and said:</p>
+    <p class="hand">“Always believe in your dreams.”</p>
+    <p>I kept entering every drawing competition at that school, as a quiet act of self-belief. Maths came naturally too; I filled whole registers with solutions. Then I fell short of the IIT cut-off. I took a drop year, solved Irodov and old Olympiad problems for the joy of it, and got into BITS Pilani's Goa campus.</p>
+    <p class="aside">Pokémon at 5 p.m. as a kid. Taylor Swift's “Change” on wired earphones every day of the drop year.</p>
+  </div>
+  <figure class="vignette"><img src="/chars/star.webp" alt="A teacher in a green saree bends down and draws a small star on a tearful boy's cheek with her pen." width="851" height="891"><figcaption>the star</figcaption></figure>
+  </div>
+  <svg class="scene" id="scene1" viewBox="0 0 1440 520" preserveAspectRatio="xMidYMax slice" role="img" aria-label="A dawn train crosses an arched bridge, smoke trailing in the wind.">
+    <path d="M0 230 C220 180 460 210 700 190 S1160 160 1440 210 V520 H0Z" fill="#94a486" opacity=".6"/>
+    <rect x="0" y="330" width="1440" height="22" fill="#54443a"/>
+    <g fill="none" stroke="#54443a" stroke-width="14" id="arches"></g>
+    <path d="M0 460 Q360 440 720 470 T1440 460 V520 H0Z" fill="#6e8da6" opacity=".7"/>
+    <g id="smoke" fill="#fff"></g>
+    <g id="train"></g>
+    <path d="M0 496 Q400 478 900 500 T1440 492 V520 H0Z" fill="#b39c7c"/>
+    <image id="fatherI" href="/chars/father.webp" x="0" y="300" width="214" height="206"><title>The father walking to work at dawn with his satchel and tiffin</title></image>
+  </svg>
+</section>
 
-        <section class="impact section" data-reveal>
-          <div class="section-label">
-            <span>02</span>
-            <span>Selected impact</span>
-          </div>
-          <div class="metric-grid">
-            <article class="metric-card metric-card--accent">
-              <p class="metric-value">90<sup>%</sup></p>
-              <p class="metric-label">fewer availability drops through controlled backpressure</p>
-              <span class="metric-tag">Reliability</span>
-            </article>
-            <article class="metric-card">
-              <p class="metric-value">5<sup>TB+</sup></p>
-              <p class="metric-label">ingestion benchmarked to expose system bottlenecks</p>
-              <span class="metric-tag">Scale</span>
-            </article>
-            <article class="metric-card">
-              <p class="metric-value">$8.7<sup>M</sup></p>
-              <p class="metric-label">customer billing anomaly identified and mitigated</p>
-              <span class="metric-tag">Cost</span>
-            </article>
-          </div>
-        </section>
+<!-- II · One day -->
+<section class="chapter" id="ch2" data-sky="#73aad6,#e2f0f0" data-name="II · First flight">
+  <div class="copy"><div class="col right">
+    <p class="spine">One day, the boy took his first flight.</p>
+    <blockquote class="epi"><p>“We each need to find our own inspiration, Kiki. Sometimes it's not easy.”</p><cite>Ursula · Kiki's Delivery Service (1989)</cite></blockquote>
+    <header class="ch-head"><span class="num" aria-hidden="true">II</span><h2>A rank list picked my branch. I picked everything else.</h2></header>
+    <div class="pass" aria-label="Boarding pass: Delhi to Goa, 2016, first flight">
+      <div><span class="route">DEL → GOI</span><small>S. Mishra · 2016 · first flight of my life</small></div>
+      <div class="stub">BITS<br>’16</div>
+    </div>
+    <p>My first flight, Delhi to Goa. College was paid for with an education loan, and I was the first in my family to study outside our city.</p>
+    <p>The rank list made me a chemical engineer. My curiosity went further: graph theory, astrophysics, relativity. After repeated requests, my relativity professor let me skip Quantum Mechanics I and II to join an advanced quantum computing course meant mostly for master's students. I ran small quantum circuits on a real IBM quantum computer from my hostel room.</p>
+    <p>The machine learning course was open only to computer science and electrical students. I asked the head of the CS department to open it to everyone. Then I asked again the next semester, and the one after. It opened to every branch, and has stayed open since.</p>
+    <p>Nights went to the competitive coding club our batch started in first year: CodeChef 5★, global rank 150, Google Code Jam Round 2. Then a summer internship in face recognition at Publicis Sapient, which ended in a job offer.</p>
+  </div></div>
+  <svg class="scene" id="scene2" viewBox="0 0 1440 520" preserveAspectRatio="xMidYMax slice" role="img" aria-label="A small plane crosses the coast; palms sway and waves roll in.">
+    <path id="sea1" fill="#2c6c84" opacity=".85"/>
+    <path d="M940 330 C1000 240 1160 230 1240 330Z" fill="#4f6b45"/>
+    <g id="palms" stroke="#3a4f33" stroke-width="7" fill="none" stroke-linecap="round"></g>
+    <path id="sea2" fill="#3f88a0" opacity=".75"/>
+    <path d="M0 470 C200 420 420 430 640 500 L640 520 H0Z" fill="#e8d3a5"/>
+    <g id="plane2"><path id="trail2" d="M-10 4 h-220" stroke="#fff" stroke-width="2.5" stroke-dasharray="8 10"/><path d="M0 0 h70 l14 -10 h8 l-8 16 h-84z M26 0 l14 -22 h9 l-5 22" fill="#fbf6ea" stroke="#2b2520" stroke-width="1.5"/></g>
+  </svg>
+</section>
 
-        <section class="featured section" data-reveal>
-          <div class="section-heading">
-            <div class="section-label">
-              <span>03</span>
-              <span>Selected projects</span>
-            </div>
-            <a class="text-link" href="./projects.html">View all projects <span>→</span></a>
-          </div>
-          <div class="featured-list">
-            <a class="featured-project" href="https://github.com/shashankswe2020-ux/whoop-mcp" target="_blank" rel="noopener">
-              <span class="project-number">01</span>
-              <span class="project-name">whoop-mcp</span>
-              <span class="project-type">TypeScript · MCP</span>
-              <span class="project-arrow" aria-hidden="true">↗</span>
-            </a>
-            <a class="featured-project" href="https://github.com/shashankswe2020-ux/backend-pro-max-skill" target="_blank" rel="noopener">
-              <span class="project-number">02</span>
-              <span class="project-name">backend-pro-max-skill</span>
-              <span class="project-type">AI · Developer tools</span>
-              <span class="project-arrow" aria-hidden="true">↗</span>
-            </a>
-            <a class="featured-project" href="https://github.com/shashankswe2020-ux/research-buddy" target="_blank" rel="noopener">
-              <span class="project-number">03</span>
-              <span class="project-name">research-buddy</span>
-              <span class="project-type">AI · Multi-agent systems</span>
-              <span class="project-arrow" aria-hidden="true">↗</span>
-            </a>
-          </div>
-        </section>
+<!-- III · But one night -->
+<section class="chapter night" id="ch3" data-sky="#0e1828,#22324a" data-name="III · Fireflies">
+  <div class="copy"><div class="col center">
+    <p class="spine">But then, the wind changed.</p>
+    <blockquote class="epi"><p>“Why must fireflies die so young?”</p><cite>Setsuko · Grave of the Fireflies (1988)</cite></blockquote>
+    <header class="ch-head"><span class="num" aria-hidden="true">III</span><h2>The year the light changed hands</h2></header>
+    <p>In my final year I was working on a project for a space-tech startup and planning a research internship in quantum computing. Midway through that semester, my father passed away.</p>
+    <p>Overnight, I became the family's breadwinner: an education loan, a house loan, and a brother eleven years younger. It was the peak of COVID. I set the research aside and took a six-month internship at Goldman Sachs, because its stipend could support us. It ended in a job offer too. Later I chose a stable software job over research or a deep-tech startup.</p>
+    <p>It was necessity, not preference. But he had already shown me how to carry it: strength isn't avoiding struggle; it's carrying it with grace.</p>
+    <p class="hand">On the rides back from our village, I would fall asleep on the back of his bike, knowing I was safe with him.</p>
+  </div></div>
+  <div class="scene" id="fieldWrap" style="height:clamp(260px,36vw,520px)"><img id="scooterI" src="/chars/scooter.webp" alt="The father rides his scooter home at night; his son sleeps against his back."><canvas id="field" style="width:100%;height:100%;display:block" role="img" aria-label="A night field of tall grass bending in the wind, full of drifting fireflies under a pale moon."></canvas></div>
+</section>
 
-        <section class="home-cta section" data-reveal>
-          <p class="section-eyebrow">Have a hard systems problem?</p>
-          <h2>Let&rsquo;s build something that holds up.</h2>
-          <a class="circle-link" href="./contact.html" aria-label="Get in touch">
-            <span>Get in touch</span>
-            <span aria-hidden="true">↗</span>
-          </a>
-        </section>
+<!-- IV · Because of that -->
+<section class="chapter" id="ch4" data-sky="#5592c9,#d6eaf6" data-name="IV · The big machines">
+  <div class="copy">
+    <div class="col">
+      <p class="spine">Because of that, he learned to fly the big machines.</p>
+    <blockquote class="epi"><p>“Airplanes are beautiful dreams. Engineers turn dreams into reality.”</p><cite>Caproni · The Wind Rises (2013)</cite></blockquote>
+      <header class="ch-head"><span class="num" aria-hidden="true">IV</span><h2>Systems that carry other people's money and data</h2></header>
+      <p>A chemical engineer moving into software has to earn every step. One project led to an internship, then another. Along the way I settled on three rules: design for failure, measure before optimizing, scale deliberately.</p>
+    </div>
+    <div class="logbook" role="list" aria-label="Career logbook">
+      <div class="entry" role="listitem"><span class="where">now</span><div><h3>Microsoft</h3><p>Software Engineer II, building cloud infrastructure at scale.</p></div></div>
+      <div class="entry" role="listitem"><span class="where">AWS</span><div><h3>OpenSearch Serverless</h3>
+        <p>A peer referred me to the team building OpenSearch Serverless, a brand-new AWS service. I worked on the indexing write path and built the Index Rollover API that lets ingestion scale automatically. Before launch, I noticed the system called the metadata service once per shard instead of batching. Fixing it meant a week's delay before a hard deadline. My manager was unsure, so I took it to the Principal Engineer, who approved it.</p>
+        <p>After launch, my manager moved to another team and asked me to come along. It could have fast-tracked my promotion. I stayed with a five-person team to stabilise what we had launched. After a quarter of on-call rotations and fixes, availability in major US regions rose from dips as low as 40% to over 90%. The promotion came a few quarters later, backed by a Principal Engineer.</p>
+        <p>One evening while I was on leave, my manager called: a junior engineer was stuck, and a regional launch was due the next working day. I traced a stuck disk creation to a network issue, and with the network team's on-call engineer we fixed it past midnight. The launch went ahead on time.</p>
+        <p>Also in the log: a cost anomaly fixed that cut customer billing by $8.7M, a $2M/month customer onboarded, 300+ code reviews, and an intern I mentored who recovered from an accidental push to the main branch and earned a full-time offer.</p></div></div>
+      <div class="entry" role="listitem"><span class="where">Razorpay</span><div><h3>Startup speed</h3><p>I wanted to feel how fast a startup moves. I launched Advance Tax Payments in three months to meet a quarterly tax deadline; it processed ₹6.4 Cr in its first month. I owned the payout-links service and fixed a state-inconsistency bug that could have cost ₹4 Cr.</p></div></div>
+      <div class="entry" role="listitem"><span class="where">Sapient</span><div><h3>First job</h3><p>My first full-time role, offered after my internship there, where I had won the Learning Mindset award. I built a GraphQL layer that made a financial-wellness platform more responsive.</p></div></div>
+    </div>
+  </div>
+  <svg class="scene" id="scene4" viewBox="0 0 1440 300" preserveAspectRatio="xMidYMax slice" style="height:clamp(160px,20vw,300px)" role="img" aria-label="A plane climbs over a sea of clouds.">
+    <g id="cloudsea" fill="#fbf6ea" opacity=".95"></g>
+    <g id="plane4"><path d="M0 0 h70 l14 -10 h8 l-8 16 h-84z M26 0 l14 -22 h9 l-5 22 M10 6 l-8 8 h6 l10 -8" fill="#fbf6ea" stroke="#2b2520" stroke-width="1.5"/></g>
+  </svg>
+</section>
 
-        <footer class="footer">
-          <div class="footer-primary">
-            <a href="./" class="footer-brand">Shashank Mishra</a>
-            <p>Software engineer focused on distributed systems and cloud infrastructure.</p>
-          </div>
-          <div class="footer-links">
-            <a href="https://github.com/shashankswe2020-ux" target="_blank" rel="noopener">GitHub ↗</a>
-            <a href="https://www.linkedin.com/in/shashank-mishra-015a2b116" target="_blank" rel="noopener">LinkedIn ↗</a>
-            <a href="mailto:shashank.swe.2020@gmail.com">Email ↗</a>
-          </div>
-          <div class="footer-meta">
-            <span>© <span id="year"></span></span>
-            <span>Built with care and curiosity.</span>
-          </div>
-        </footer>
-      </div>
-    </main>
+<!-- V · Because of that -->
+<section class="chapter night" id="ch5" data-sky="#3b3142,#d48a5c" data-name="V · The workshop">
+  <div class="copy">
+    <div class="col">
+      <p class="spine">Because of that, he started building his own.</p>
+    <blockquote class="epi"><p>“A pig's gotta fly.”</p><cite>Porco · Porco Rosso (1992)</cite></blockquote>
+      <header class="ch-head"><span class="num" aria-hidden="true">V</span><h2>What I build after the day job</h2></header>
+      <p>The hangar light stays on late. These are tools I build in my own time. All open source.</p>
+    </div>
+    <div class="wall">
+      <a class="print" href="https://whoopconnector.com/" target="_blank" rel="noopener">
+        <h3>WHOOP Connector</h3>
+        <p>Lets your AI assistant read your WHOOP recovery, sleep and strain. Read-only, your tokens stay on your machine, and you're compared against your own baseline, not a population average.</p>
+        <span class="spec">7,946 downloads · 166 stars · 16 tools</span><span class="go">open blueprint →</span>
+      </a>
+      <a class="print" href="https://backendpro.cc/" target="_blank" rel="noopener">
+        <h3>Backend Pro Max</h3>
+        <p>A staff engineer in a box: 685 backend and distributed-systems concepts across 35 domains, each with a source, searchable by Claude, Cursor or Copilot before they design.</p>
+        <span class="spec">685 concepts · 35 domains · 652 tests</span><span class="go">open blueprint →</span>
+      </a>
+      <a class="print" href="https://www.rigspark.si/" target="_blank" rel="noopener">
+        <h3>RigSpark</h3>
+        <p>Tells you which local AI models your machine can actually run before you download them: yes, slow or no, with estimated tokens per second. The advice never touches the network.</p>
+        <span class="spec">69 models · 4 runtimes · 0 network calls</span><span class="go">open blueprint →</span>
+      </a>
+    </div>
+  </div>
+  <svg class="scene" id="scene5" viewBox="0 0 1440 360" preserveAspectRatio="xMidYMax slice" role="img" aria-label="A workshop hangar glowing at dusk, a lamp flickering over the workbench.">
+    <path d="M140 360 V170 Q720 -20 1300 170 V360Z" fill="#2c2430"/>
+    <path d="M210 360 V200 Q720 40 1230 200 V360Z" fill="#e2a066"/>
+    <circle id="glow5" cx="720" cy="150" r="170" fill="#f8d98a" opacity=".35"/>
+    <path d="M720 40 V110" stroke="#2c2430" stroke-width="3"/><path d="M700 110 h40 l-10 18 h-20z" fill="#2c2430"/>
+    <g id="motes" fill="#fff6d8"></g>
+    <rect x="360" y="300" width="720" height="14" fill="#5a3f30"/><rect x="380" y="314" width="10" height="46" fill="#5a3f30"/><rect x="1050" y="314" width="10" height="46" fill="#5a3f30"/>
+    <g stroke="#2c2430" stroke-width="2.5" fill="none"><path d="M480 300 v-36 h70 v36 M640 300 l22 -44 l34 44 M590 262 h26"/></g>
+  </svg>
+</section>
 
-    <script type="module" src="/src/main.ts"></script>
-  </body>
+<!-- VI · Until finally -->
+<section class="chapter night" id="ch6" data-sky="#26355a,#8d9ec4" data-name="VI · Deliveries">
+  <div class="copy">
+    <div class="col">
+      <p class="spine">Until finally, he was the one drawing the stars.</p>
+    <blockquote class="epi"><p>“We can fly with our spirit.”</p><cite>Kiki · Kiki's Delivery Service (1989)</cite></blockquote>
+      <header class="ch-head"><span class="num" aria-hidden="true">VI</span><h2>Passing the star forward</h2></header>
+      <p>That star has long faded from my cheek, but its lesson hasn't: the right encouragement at the right moment can rewrite someone's future.</p>
+      <p>A friend from my internship had a job offer but wanted something better, and was afraid to let it go. I reminded him every day what he was capable of. He turned the offer down and got Uber on day one of campus placements.</p>
+      <p>My younger brother had been barely passing for years, sometimes on grace marks. We studied together, focusing on steady improvement rather than grades. He passed tenth grade with 87%.</p>
+      <p>Since 2021 I've given free one-on-one calls to university students finding their way into software, and I write on LinkedIn about non-linear careers.</p>
+      <p>And I've gone back to my first love. On <a href="https://www.youtube.com/@AskEuler" target="_blank" rel="noopener">Ask Euler</a> I take one Project Euler problem at a time, show the naive approach, then the trick that makes it run instantly. The boy who filled registers with maths now teaches it.</p>
+    </div>
+    <div class="cards">
+      <figure class="study"><img src="/chars/study.webp" alt="A young man helps his younger brother with maths at a lamp-lit table while a small Pomeranian watches from a chair." width="900" height="647"></figure>
+      <div class="card"><b>20+</b><span>free mentoring calls</span></div>
+      <div class="card"><b>13k</b><span>followers on LinkedIn</span></div>
+      <div class="card"><b>1</b><span>course opened to every branch</span></div>
+      <a class="card" href="https://www.youtube.com/@AskEuler" target="_blank" rel="noopener"><b>∑</b><span>one Euler problem, explained</span></a>
+    </div>
+  </div>
+  <svg class="scene" id="scene6" viewBox="0 0 1440 360" preserveAspectRatio="xMidYMax slice" role="img" aria-label="Letters drift on the evening wind over dark rooftops.">
+    <g id="envs"></g>
+    <g id="roofs6"></g>
+  </svg>
+</section>
+
+<!-- EPILOGUE · And every day since -->
+<section class="chapter" id="epilogue" data-sky="#f4b487,#fde8cc" data-name="Epilogue">
+  <div class="copy"><div class="col center">
+    <p class="spine">And every day since, the wind keeps rising.</p>
+    <p class="quote">“Le vent se lève! … il faut tenter de vivre.”</p>
+    <p class="aside" style="max-width:none">Paul Valéry, 1920 · the line that opens The Wind Rises (2013) · “The wind is rising; we must try to live.”</p>
+    <p class="turn">The boy the class laughed at now builds systems other people rely on, and tells students their dreams aren't silly either. The star faded. The kite is still up.</p>
+    <p>When life feels overwhelming, I go to Rameshwaram and spend hours in Dr. Kalam's childhood home, now a museum. He grew up on that small island and read more than a thousand books. Then I come back and build the next thing.</p>
+    <p class="hand">My grandmother's rule still guides me: win one day at a time.</p>
+    <p>Still on the list: an Ironman, a week of books and cafés in Edinburgh, whales in Antarctica, and time to sketch again, just for love.</p>
+    <h2 style="margin-top:.4em">Say hello</h2>
+    <div class="links">
+      <span class="mail" id="email">shashank.swe.2020@gmail.com</span>
+      <button class="linkbtn" id="copy" type="button">copy</button>
+      <a href="https://www.linkedin.com/in/shashank-mishra-015a2b116/" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="https://github.com/shashankswe2020-ux" target="_blank" rel="noopener">GitHub</a>
+      <a href="https://www.youtube.com/@AskEuler" target="_blank" rel="noopener">Ask Euler</a>
+    </div>
+  </div></div>
+  <svg class="scene" id="sceneE" viewBox="0 0 1440 420" preserveAspectRatio="xMidYMax slice" role="img" aria-label="Sunrise over the sea, a temple tower on the shore, and the kite, small now, far over the water.">
+    <circle cx="720" cy="300" r="120" fill="#f7cf8a"/>
+    <path id="seaE1" fill="#3d7f94" opacity=".85"/>
+    <path id="seaE2" fill="#2c6c84" opacity=".8"/>
+    <path d="M200 300 h120 l-8 -22 h-104z M216 278 l10 -30 h68 l10 30z M230 248 l10 -28 h40 l10 28z M244 220 l8 -22 h20 l8 22z" fill="#7a5a43"/>
+    <path d="M0 372 Q360 360 720 376 T1440 368 V420 H0Z" fill="#e3c99b"/>
+    <path id="stringE" fill="none" stroke="#2b2520" stroke-width="1" opacity=".55"/>
+    <image href="/chars/shore.webp" x="820" y="205" width="200" height="217"><title>The grown boy flies a kite on the shore with his two dogs</title></image>
+    <g id="kiteE"><path id="tailE" fill="none" stroke="#c4673a" stroke-width="1.6"/><image href="/tex/kite.webp" x="-16" y="-22" width="32" height="45"/></g>
+  </svg>
+</section>
+</main>
+
+<audio id="music" src="/audio/score.mp3" loop preload="none"></audio>
+<button class="record" id="rec" type="button" aria-pressed="false" aria-label="Play music">
+  <span id="recLabel">play the music</span>
+  <svg viewBox="0 0 48 48" aria-hidden="true"><circle cx="24" cy="24" r="22" fill="#2b2520"/><circle cx="24" cy="24" r="17" fill="none" stroke="#4a403a" stroke-width="1"/><circle cx="24" cy="24" r="13" fill="none" stroke="#4a403a" stroke-width="1"/><circle cx="24" cy="24" r="7" fill="#c4673a"/><circle cx="24" cy="24" r="1.6" fill="#f7f0df"/><path d="M10 16 a16 16 0 0 1 8 -6" stroke="#6a5e55" stroke-width="1.4" fill="none" stroke-linecap="round"/></svg>
+</button>
+<footer>shashankmishra.bio · drawn, written and engineered by hand</footer>
+
+<script type="module" src="/src/main.js"></script>
+</body>
 </html>

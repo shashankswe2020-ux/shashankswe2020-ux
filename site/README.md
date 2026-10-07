@@ -1,69 +1,61 @@
-# Portfolio site
+# shashankmishra.bio — The Wind and the Kite
 
-Personal portfolio for Shashank Mishra — a real, animated multi-page site that
-genuinely uses the libraries called out in the brief:
+Personal site for Shashank Mishra, live at **https://shashankmishra.bio**.
 
-| Library                            | Where it shows up                                                        |
-| ---------------------------------- | ------------------------------------------------------------------------ |
-| **Anime.js v4** (modular physics)  | Skill-chip entrance + hover springs (`createSpring`) on the Work page    |
-| **Barba.js**                       | Smooth slide-cover transitions between Home / Work / Projects / Contact  |
-| **Three.js (WebGPU)**              | Hero scene; uses `WebGPURenderer` when available, falls back to WebGL    |
-| **GSAP** (+ ScrollTrigger)         | Page-transition cover animation, scroll reveals, hero fallback timeline  |
-| **Theatre.js**                     | Choreographs the hero intro sequence (Studio loaded only in dev)         |
+A single, hand-drawn scrolling story built on Pixar's story spine:
+Once upon a time → Every day → One day → But one night → Because of that ×2 →
+Until finally → And every day since. Each chapter has its own painted sky,
+character vignette and animated scene.
+
+One wind field (`wind(t)` in `src/main.js`) drives the kite, tail, string sag,
+grass, sea, smoke, clouds, fireflies and letters. Scrolling gusts the wind.
+Everything honours `prefers-reduced-motion`, and only on-screen scenes animate.
+The score plays only when the visitor taps the record.
 
 ## Stack
 
-- Vite 7 + TypeScript (strict)
-- Plain HTML pages so Barba can do real cross-document transitions
-- Deployed to GitHub Pages via `.github/workflows/deploy-site.yml`
+- Vite 7, vanilla JS, inline SVG + canvas. No runtime dependencies.
+- Fonts: IM Fell English, Alegreya, Kalam (Google Fonts).
+- Art comes from [`/design`](../design): Blender-rendered textures, character
+  plates and the original score.
 
 ## Develop
 
 ```bash
 cd site
 npm install
-npm run dev          # http://localhost:5173 — Theatre.js Studio is enabled
-```
-
-In dev mode, the Theatre.js Studio panel appears on the bottom of the screen so
-you can author the hero intro sequence visually. The authored state lives in
-the project (the sheet name is `Hero Intro`).
-
-## Build
-
-```bash
-npm run build        # tsc --noEmit then vite build → site/dist
+npm run dev          # http://localhost:5173
+npm run build        # → site/dist
 npm run preview
 ```
-
-The build is configured with `base: '/shashankswe2020-ux/'` because GitHub
-Pages serves this repo at `https://shashankswe2020-ux.github.io/shashankswe2020-ux/`.
-Override with `VITE_BASE=/ npm run build` if you deploy elsewhere.
-
-## Deploy
-
-Pushes to `main` that touch `site/**` automatically build and deploy to
-GitHub Pages via the workflow. Enable Pages once in repo settings:
-
-1. Settings → Pages → Build and deployment → Source: **GitHub Actions**.
 
 ## Layout
 
 ```
 site/
-├── index.html              Home (Three.js hero + Theatre.js intro)
-├── work.html               Work (timeline + Anime.js v4 chips)
-├── projects.html           Projects (GSAP scroll reveals)
-├── contact.html            Contact
+├── index.html          The whole story (prologue, chapters I–VI, epilogue)
 ├── src/
-│   ├── main.ts             Wires everything together
-│   ├── transitions.ts      Barba.js setup + GSAP overlay
-│   ├── three/hero.ts       WebGPURenderer w/ WebGL fallback
-│   ├── theatre/intro.ts    Theatre.js sheet object + sequence
-│   ├── animations/
-│   │   ├── reveal.ts       GSAP ScrollTrigger reveals
-│   │   ├── chips.ts        Anime.js v4 createSpring physics
-│   │   └── hero-intro.ts   Hero text driven by Theatre values (GSAP fallback)
+│   ├── main.js         Wind field, kite rig, scene animations, sky, music
 │   └── styles.css
-└── vite.config.ts
+├── public/
+│   ├── CNAME           shashankmishra.bio
+│   ├── tex/            paper overlay, kite, clouds   (from design/redesign/tex)
+│   ├── chars/          character plates               (from design/redesign/chars)
+│   └── audio/score.mp3 original score                 (from design/redesign/audio)
+└── vite.config.ts      base "/" (override with VITE_BASE)
+```
+
+To update art, re-export into `design/redesign/` and copy into `public/`.
+
+## Deploy
+
+Pushes to `main` that touch `site/**` build and deploy to GitHub Pages via
+`.github/workflows/deploy-site.yml`. The custom domain is configured in the
+repo's Pages settings, and DNS for `shashankmishra.bio` is managed in Hostinger:
+
+```bash
+# apex → GitHub Pages, www → github.io
+hostinger dns records update shashankmishra.bio \
+  --zone '[{"name":"@","type":"A","ttl":300,"records":[{"content":"185.199.108.153"},{"content":"185.199.109.153"},{"content":"185.199.110.153"},{"content":"185.199.111.153"}]},{"name":"www","type":"CNAME","ttl":300,"records":[{"content":"shashankswe2020-ux.github.io."}]}]'
+hostinger dns records list shashankmishra.bio
 ```

@@ -1,0 +1,511 @@
+<title>The Wind and the Kite</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IM+Fell+English:ital@0;1&family=Alegreya:ital,wght@0,400;0,500;1,400&family=Kalam:wght@300;400&display=swap">
+<style>
+/* Layout: one painted sky behind everything, shifting chapter by chapter. Text sits in each plate's quiet sky; paper appears only as real objects (ticket, logbook, blueprints, postcards). One wind field drives every moving thing. Story spine (Once upon a time → Until finally) opens each chapter. Single visual world by choice. */
+:root{
+  color-scheme: light;
+  --paper:#f7f0df; --ink:#2b2520; --ink-soft:#5d5248; --ember:#c4673a; --moss:#4f6b45;
+  --sea:#2c6c84; --night:#121c2c; --firefly:#f2df78; --blueprint:#1f4f78; --moon:#ede5d2;
+  --f-display:"IM Fell English","Iowan Old Style",Georgia,serif;
+  --f-body:"Alegreya","Iowan Old Style",Georgia,serif;
+  --f-hand:"Kalam","Segoe Print","Bradley Hand",cursive;
+  --sky-top:#f1d29a; --sky-bot:#f8ebd0; --wind:0;
+  --s-0:clamp(1.06rem,1rem + .3vw,1.22rem);
+  --s-1:clamp(1.25rem,1.1rem + .6vw,1.6rem);
+  --s-2:clamp(2rem,1.5rem + 2.2vw,3.6rem);
+  --s-3:clamp(2.8rem,1.9rem + 4.4vw,6.2rem);
+  --s-num:clamp(4.5rem,3rem + 7vw,9rem);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:var(--paper);color:var(--ink);font-family:var(--f-body);font-size:var(--s-0);line-height:1.62;overflow-x:hidden}
+#sky{position:fixed;inset:0;z-index:-3;background:linear-gradient(180deg,var(--sky-top),var(--sky-bot))}
+#clouds{position:fixed;inset:0;z-index:-2;pointer-events:none;overflow:hidden}
+#clouds{opacity:var(--cloud-op,.6);transition:opacity .8s}
+#clouds img{position:absolute;left:0;top:0;filter:brightness(1.22) saturate(.7);will-change:transform;user-select:none}
+#paper{position:fixed;inset:0;z-index:50;pointer-events:none;background:url("tex/paper.webp") 0 0/512px 512px;mix-blend-mode:soft-light;opacity:.42}
+a{color:inherit;text-decoration-thickness:1px;text-underline-offset:4px}
+a:hover{text-decoration-thickness:2px}
+a:focus-visible,button:focus-visible{outline:2px dashed var(--ember);outline-offset:4px}
+p{margin:0;max-width:60ch}
+h1,h2{font-family:var(--f-display);font-weight:400;line-height:1.02;text-wrap:balance;margin:0}
+h1{font-size:var(--s-3);letter-spacing:-.01em}
+h1 i{color:var(--ember)}
+h2{font-size:var(--s-2)}
+.spine{font-family:var(--f-hand);font-size:var(--s-1);color:var(--ember);line-height:1.3;margin:0}
+.hand{font-family:var(--f-hand);color:var(--ember);font-size:1.18em;line-height:1.35}
+.aside{font-family:var(--f-hand);font-weight:300;color:var(--ink-soft);font-size:1rem;line-height:1.4;max-width:34ch}
+
+/* flight path */
+.flight{position:fixed;top:env(safe-area-inset-top,0px);left:0;right:0;z-index:40;padding:14px 16px 0;pointer-events:none}
+.track{position:relative;max-width:1100px;margin:0 auto;height:28px}
+.track::before{content:"";position:absolute;left:0;right:0;top:13px;border-top:1.5px dashed rgba(43,37,32,.4)}
+.dot{position:absolute;top:8px;width:12px;height:12px;margin-left:-6px;border-radius:50%;background:var(--paper);border:1.5px solid var(--ink);pointer-events:auto}
+.dot[aria-current="true"]{background:var(--ink)}
+#plane{position:absolute;top:-2px;width:30px;height:30px;margin-left:-15px}
+
+/* chapters */
+.chapter{position:relative}
+.copy{position:relative;z-index:2;max-width:1200px;margin:0 auto;padding-inline:16px;display:grid;grid-template-columns:repeat(12,minmax(0,1fr));column-gap:24px}
+.col{grid-column:2 / span 6;display:grid;gap:1.05em;align-content:start;min-width:0}
+.col.right{grid-column:7 / span 5}
+.col.center{grid-column:3 / span 8;text-align:center;justify-items:center}
+.ch-head{display:flex;align-items:flex-start;gap:.25em}
+.num{font-family:var(--f-display);font-style:italic;font-size:var(--s-num);line-height:.8;color:var(--ember);flex:0 0 auto}
+.ch-head h2{padding-top:.2em}
+.center .ch-head{flex-direction:column;align-items:center}
+.night{color:var(--moon)}
+.night .num,.night .hand,.night .spine{color:var(--firefly)}
+.night .aside{color:#c9c0ad}
+.scene{display:block;width:100%;height:clamp(260px,42vw,620px);position:relative;z-index:1}
+@media (max-width:860px){.col,.col.right,.col.center{grid-column:1 / -1}}
+
+#prologue{padding-top:clamp(90px,14vh,150px)}
+#prologue .col{grid-column:2 / span 7}
+.who{color:var(--ink-soft);font-size:var(--s-1);font-style:italic;max-width:30ch}
+.cv{font-size:.98rem;color:var(--ink-soft)}
+#prologue .scene{height:clamp(340px,52vw,760px);margin-top:clamp(-240px,-15vw,-30px)}
+#ch1,#ch2,#ch3,#ch4,#ch5,#ch6,#epilogue{padding-top:clamp(70px,12vh,140px)}
+
+/* boarding pass */
+.pass{display:grid;grid-template-columns:1fr 84px;width:min(100%,400px);background:#fffdf6;border-radius:9px;overflow:hidden;box-shadow:0 14px 30px -18px rgba(0,0,0,.55);transform:rotate(-5deg);margin:4px 0 10px 8px;color:var(--ink)}
+.pass>div:first-child{padding:14px 18px;display:grid;gap:4px}
+.route{font-family:var(--f-display);font-size:2.2rem;line-height:1}
+.pass small{font-family:var(--f-hand);font-weight:300;font-size:.95rem;color:var(--ink-soft)}
+.stub{background:var(--ember);color:#fff6ea;display:grid;place-content:center;text-align:center;font-family:var(--f-display);font-size:1.25rem;line-height:1.1;border-left:2px dashed rgba(255,255,255,.55)}
+
+/* logbook */
+.logbook{grid-column:2 / span 10;margin-top:30px;background-color:#fffcf2;color:var(--ink);box-shadow:0 22px 40px -26px rgba(0,0,0,.5);transform:rotate(.4deg);padding:30px 28px 30px 0;
+  background-image:linear-gradient(90deg,transparent 129px,rgba(196,103,58,.55) 129px,rgba(196,103,58,.55) 131px,transparent 131px),repeating-linear-gradient(180deg,transparent 0 29px,rgba(120,160,195,.35) 29px 30px);background-position:0 0,0 6px}
+.entry{display:grid;grid-template-columns:130px minmax(0,1fr);column-gap:22px;line-height:30px;font-size:1.04rem;padding-bottom:30px}
+.entry:last-child{padding-bottom:0}
+.entry .where{font-family:var(--f-hand);color:var(--ember);text-align:right;padding-right:16px;font-size:1.05rem}
+.entry h3{margin:0;font:400 1.6rem/30px var(--f-display)}
+.entry>div{display:grid;gap:0}
+.entry p{max-width:none}
+@media (max-width:860px){.logbook{grid-column:1 / -1;padding-right:16px;background-image:repeating-linear-gradient(180deg,transparent 0 29px,rgba(120,160,195,.35) 29px 30px)}.entry{grid-template-columns:1fr}.entry .where{text-align:left;padding:0 0 0 16px}.entry>div{padding-left:16px}}
+
+/* blueprints */
+.wall{grid-column:1 / -1;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:28px;margin-top:36px}
+.print{position:relative;display:flex;flex-direction:column;gap:10px;padding:26px 22px 20px;color:#e9f1f7;text-decoration:none;min-width:0;
+  background-color:var(--blueprint);background-image:linear-gradient(rgba(233,241,247,.08) 1px,transparent 1px),linear-gradient(90deg,rgba(233,241,247,.08) 1px,transparent 1px);background-size:28px 28px;
+  box-shadow:0 18px 30px -18px rgba(0,0,0,.7);transform:rotate(var(--r,0deg));transition:transform .3s}
+.print:nth-child(1){--r:-2.2deg}.print:nth-child(2){--r:1.4deg;margin-top:22px}.print:nth-child(3){--r:-.8deg}
+.print:hover{transform:rotate(0deg) translateY(-4px)}
+.print::before{content:"";position:absolute;top:-11px;left:50%;width:76px;height:22px;margin-left:-38px;background:rgba(243,233,198,.85);transform:rotate(calc(var(--r,0deg)*-1.6))}
+.print h3{margin:0;font:400 1.75rem/1.1 var(--f-display)}
+.print p{color:#d3e2ec;font-size:1rem;max-width:none}
+.print .spec{font-family:var(--f-hand);color:var(--firefly);font-size:1rem;margin-top:auto;padding-top:8px;border-top:1px dashed rgba(233,241,247,.35)}
+.print .go{text-decoration:underline;text-underline-offset:4px}
+@media (max-width:860px){.wall{grid-template-columns:1fr;gap:34px}.print:nth-child(2){margin-top:0}}
+
+/* postcards */
+.cards{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:22px;align-content:start;padding-top:40px}
+.card{background:#f3ead6;color:var(--ink);padding:16px 18px 14px;min-height:120px;position:relative;box-shadow:0 14px 24px -14px rgba(0,0,0,.65);transform:rotate(calc(var(--r) + var(--wind) * var(--sway)));text-decoration:none;display:block}
+.card b{display:block;font:400 2.4rem/1 var(--f-display);color:var(--ember)}
+.card span{font-family:var(--f-hand);font-weight:300;font-size:1rem}
+.card::after{content:"";position:absolute;top:12px;right:12px;width:34px;height:40px;border:2px dotted var(--ember);opacity:.75}
+.card:nth-child(1){--r:-6deg;--sway:6deg}.card:nth-child(2){--r:5deg;--sway:-5deg;margin-top:40px}.card:nth-child(3){--r:-2deg;--sway:4deg}.card:nth-child(4){--r:4deg;--sway:-6deg;margin-top:30px}
+#ch6 .cards{grid-column:9 / span 4}
+@media (max-width:860px){#ch6 .cards{grid-column:1 / -1}}
+
+
+/* characters */
+.vignette{grid-column:9 / span 4;align-self:center;margin:0;display:grid;justify-items:center;gap:4px;position:sticky;top:18vh}
+.vignette img{width:100%;max-width:340px;height:auto}
+.vignette figcaption{font-family:var(--f-hand);color:var(--ember);font-size:1.1rem}
+#scooterI{position:absolute;bottom:4%;left:-35%;height:58%;width:auto;z-index:2;filter:brightness(.82) saturate(.9);pointer-events:none}
+#fieldWrap canvas{position:relative;z-index:1}
+.study{grid-column:1 / -1;margin:0 0 6px}
+.study img{width:100%;height:auto;display:block;filter:drop-shadow(0 10px 18px rgba(0,0,0,.35))}
+@media (max-width:860px){.vignette{grid-column:1 / -1;position:static;margin-top:20px}.vignette img{max-width:280px}}
+
+.epi{margin:0;padding-left:14px;border-left:2px solid rgba(196,103,58,.45);max-width:44ch}
+.epi p{font-family:var(--f-display);font-style:italic;font-size:1.15rem;line-height:1.35;color:var(--ink-soft)}
+.epi cite{display:block;margin-top:2px;font-style:normal;font-family:var(--f-hand);font-weight:300;font-size:.92rem;color:var(--ink-soft)}
+.night .epi{border-left-color:rgba(242,223,120,.4)}.night .epi p,.night .epi cite{color:#d6cdb9}
+.center .epi{border-left:0;padding-left:0;text-align:center}
+/* epilogue */
+.setup{font-family:var(--f-hand);font-size:var(--s-1);color:var(--ember);line-height:1.3;max-width:28ch}
+.turn{font-family:var(--f-display);font-size:var(--s-1);line-height:1.35;max-width:36ch}
+
+.quote{font-family:var(--f-display);font-style:italic;font-size:var(--s-2);line-height:1.12}
+.links{display:flex;flex-wrap:wrap;gap:8px 22px;justify-content:center;align-items:baseline;font-size:1.08rem}
+.linkbtn{font:inherit;background:none;border:0;padding:0;color:var(--ember);font-family:var(--f-hand);cursor:pointer;text-decoration:underline;text-underline-offset:4px}
+.mail{user-select:all;overflow-wrap:anywhere}
+footer{text-align:center;padding:20px 16px 80px;font-family:var(--f-hand);font-weight:300;color:var(--ink-soft)}
+
+/* record (music) */
+.record{position:fixed;right:16px;bottom:calc(16px + env(safe-area-inset-bottom,0px));z-index:45;display:flex;align-items:center;gap:10px;background:none;border:0;padding:4px;cursor:pointer;font-family:var(--f-hand);font-size:1rem;color:var(--ink)}
+.record svg{width:46px;height:46px;filter:drop-shadow(0 6px 10px rgba(0,0,0,.3))}
+.record[aria-pressed="true"] svg{animation:spin 3.2s linear infinite}
+.record span{background:var(--paper);padding:2px 8px;border-radius:3px}
+@media (max-width:640px){.record span{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}}
+@keyframes spin{to{transform:rotate(360deg)}}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}html{scroll-behavior:auto}}
+</style>
+
+<div id="sky"></div>
+<div id="clouds" aria-hidden="true"></div>
+<div id="paper" aria-hidden="true"></div>
+
+<nav class="flight" aria-label="Chapters"><div class="track" id="track">
+  <svg id="plane" viewBox="0 0 32 32" aria-hidden="true"><path d="M3 17 29 6 21 27 16 19Z" fill="#f7f0df" stroke="#2b2520" stroke-width="1.4" stroke-linejoin="round"/><path d="M16 19 29 6" stroke="#2b2520" stroke-width="1.2"/></svg>
+</div></nav>
+
+<main>
+<!-- PROLOGUE · Once upon a time -->
+<section class="chapter" id="prologue" data-sky="#f1d29a,#f8ebd0" data-name="Prologue">
+  <div class="copy"><div class="col">
+    <h1>The boy who<br>drew <i>gods</i><br>and built machines</h1>
+    <p class="who">Shashank Mishra. Engineer of systems that are not allowed to fall.</p>
+    <p class="cv">Software Engineer II at Microsoft. Before that, AWS, Razorpay and Publicis Sapient.</p>
+    <p class="setup">A story about a star drawn on a cheek, and everyone who kept the kite flying.</p>
+    <p class="aside">scroll, and the wind picks up ↓</p>
+  </div></div>
+  <svg class="scene" id="sceneP" viewBox="0 0 1440 760" preserveAspectRatio="xMidYMax slice" role="img" aria-label="Painted rooftops at golden hour. A boy on a roof flies a kite that tugs against the wind.">
+    <circle cx="1210" cy="250" r="120" fill="#f6c676" opacity=".55"/>
+    <g id="windP" stroke="#fff" stroke-width="2" fill="none" stroke-linecap="round"></g>
+    <path d="M0 520 C300 480 600 510 900 490 S1300 470 1440 500 V760 H0Z" fill="#d9b184" opacity=".5"/>
+    <g id="roofsP"></g>
+    <path d="M1030 600 l30 -110 l30 110z" fill="#6e5140"/><circle cx="1060" cy="484" r="7" fill="#c4673a"/>
+    <rect x="440" y="566" width="300" height="200" fill="#7f604a"/><rect x="434" y="558" width="312" height="12" rx="2" fill="#6e5140"/>
+    <g id="boyP"><image href="chars/kite_boy.webp" x="480" y="356" width="150" height="212"><title>A boy flying a kite with his German Shepherd beside him</title></image></g>
+    <path id="string" fill="none" stroke="#2b2520" stroke-width="1.3" opacity=".65"/>
+    <path id="tail" fill="none" stroke="#c4673a" stroke-width="3" stroke-linecap="round"/>
+    <g id="bows" fill="#c4673a"></g>
+    <g id="kite"><image href="tex/kite.webp" x="-55" y="-66" width="110" height="157"/></g>
+  </svg>
+</section>
+
+<!-- I · Every day -->
+<section class="chapter" id="ch1" data-sky="#9fb4cc,#f2c9a0" data-name="I · The 4 a.m. train">
+  <div class="copy"><div class="col">
+    <p class="spine">Every day, his father worked so his son could study.</p>
+    <blockquote class="epi"><p>“Just follow your heart and keep smiling.”</p><cite>Kokiri · Kiki's Delivery Service (1989)</cite></blockquote>
+    <header class="ch-head"><span class="num" aria-hidden="true">I</span><h2>A father who caught the first train out</h2></header>
+    <p>My father had a degree in mathematics and once dreamed of becoming an engineer. Money and circumstance held him back. Instead, he caught the 4 a.m. train to work in nearby cities, and once rode his scooter with a broken leg to teach his tuition class, still smiling.</p>
+    <p>When I cleared the entrance exam for the best school in the city, one of only two students from my school to get in, he came home with a big box of chocolates. Against family pressure, he paid more than a quarter of his monthly salary to send me there. He never once reminded me of that sacrifice.</p>
+    <p>In sixth grade I became his tech support: Excel expense sheets, his first ATM card, his first smartphone, then WhatsApp. To him it felt like magic. For me, it was where my joy of teaching began.</p>
+    <p>I drew gods: Saraswati with her veena, Krishna with his flute. After I won my class drawing competition, the principal asked what I wanted to become. I said, “M.F. Husain.” The class burst out laughing, and I started to cry. My class teacher called me aside, drew a little star on my cheek with her pen, and said:</p>
+    <p class="hand">“Always believe in your dreams.”</p>
+    <p>I kept entering every drawing competition at that school, as a quiet act of self-belief. Maths came naturally too; I filled whole registers with solutions. Then I fell short of the IIT cut-off. I took a drop year, solved Irodov and old Olympiad problems for the joy of it, and got into BITS Pilani's Goa campus.</p>
+    <p class="aside">Pokémon at 5 p.m. as a kid. Taylor Swift's “Change” on wired earphones every day of the drop year.</p>
+  </div>
+  <figure class="vignette"><img src="chars/star.webp" alt="A teacher in a green saree bends down and draws a small star on a tearful boy's cheek with her pen." width="851" height="891"><figcaption>the star</figcaption></figure>
+  </div>
+  <svg class="scene" id="scene1" viewBox="0 0 1440 520" preserveAspectRatio="xMidYMax slice" role="img" aria-label="A dawn train crosses an arched bridge, smoke trailing in the wind.">
+    <path d="M0 230 C220 180 460 210 700 190 S1160 160 1440 210 V520 H0Z" fill="#94a486" opacity=".6"/>
+    <rect x="0" y="330" width="1440" height="22" fill="#54443a"/>
+    <g fill="none" stroke="#54443a" stroke-width="14" id="arches"></g>
+    <path d="M0 460 Q360 440 720 470 T1440 460 V520 H0Z" fill="#6e8da6" opacity=".7"/>
+    <g id="smoke" fill="#fff"></g>
+    <g id="train"></g>
+    <path d="M0 496 Q400 478 900 500 T1440 492 V520 H0Z" fill="#b39c7c"/>
+    <image id="fatherI" href="chars/father.webp" x="0" y="300" width="214" height="206"><title>The father walking to work at dawn with his satchel and tiffin</title></image>
+  </svg>
+</section>
+
+<!-- II · One day -->
+<section class="chapter" id="ch2" data-sky="#73aad6,#e2f0f0" data-name="II · First flight">
+  <div class="copy"><div class="col right">
+    <p class="spine">One day, the boy took his first flight.</p>
+    <blockquote class="epi"><p>“We each need to find our own inspiration, Kiki. Sometimes it's not easy.”</p><cite>Ursula · Kiki's Delivery Service (1989)</cite></blockquote>
+    <header class="ch-head"><span class="num" aria-hidden="true">II</span><h2>A rank list picked my branch. I picked everything else.</h2></header>
+    <div class="pass" aria-label="Boarding pass: Delhi to Goa, 2016, first flight">
+      <div><span class="route">DEL → GOI</span><small>S. Mishra · 2016 · first flight of my life</small></div>
+      <div class="stub">BITS<br>’16</div>
+    </div>
+    <p>My first flight, Delhi to Goa. College was paid for with an education loan, and I was the first in my family to study outside our city.</p>
+    <p>The rank list made me a chemical engineer. My curiosity went further: graph theory, astrophysics, relativity. After repeated requests, my relativity professor let me skip Quantum Mechanics I and II to join an advanced quantum computing course meant mostly for master's students. I ran small quantum circuits on a real IBM quantum computer from my hostel room.</p>
+    <p>The machine learning course was open only to computer science and electrical students. I asked the head of the CS department to open it to everyone. Then I asked again the next semester, and the one after. It opened to every branch, and has stayed open since.</p>
+    <p>Nights went to the competitive coding club our batch started in first year: CodeChef 5★, global rank 150, Google Code Jam Round 2. Then a summer internship in face recognition at Publicis Sapient, which ended in a job offer.</p>
+  </div></div>
+  <svg class="scene" id="scene2" viewBox="0 0 1440 520" preserveAspectRatio="xMidYMax slice" role="img" aria-label="A small plane crosses the coast; palms sway and waves roll in.">
+    <path id="sea1" fill="#2c6c84" opacity=".85"/>
+    <path d="M940 330 C1000 240 1160 230 1240 330Z" fill="#4f6b45"/>
+    <g id="palms" stroke="#3a4f33" stroke-width="7" fill="none" stroke-linecap="round"></g>
+    <path id="sea2" fill="#3f88a0" opacity=".75"/>
+    <path d="M0 470 C200 420 420 430 640 500 L640 520 H0Z" fill="#e8d3a5"/>
+    <g id="plane2"><path id="trail2" d="M-10 4 h-220" stroke="#fff" stroke-width="2.5" stroke-dasharray="8 10"/><path d="M0 0 h70 l14 -10 h8 l-8 16 h-84z M26 0 l14 -22 h9 l-5 22" fill="#fbf6ea" stroke="#2b2520" stroke-width="1.5"/></g>
+  </svg>
+</section>
+
+<!-- III · But one night -->
+<section class="chapter night" id="ch3" data-sky="#0e1828,#22324a" data-name="III · Fireflies">
+  <div class="copy"><div class="col center">
+    <p class="spine">But then, the wind changed.</p>
+    <blockquote class="epi"><p>“Why must fireflies die so young?”</p><cite>Setsuko · Grave of the Fireflies (1988)</cite></blockquote>
+    <header class="ch-head"><span class="num" aria-hidden="true">III</span><h2>The year the light changed hands</h2></header>
+    <p>In my final year I was working on a project for a space-tech startup and planning a research internship in quantum computing. Midway through that semester, my father passed away.</p>
+    <p>Overnight, I became the family's breadwinner: an education loan, a house loan, and a brother eleven years younger. It was the peak of COVID. I set the research aside and took a six-month internship at Goldman Sachs, because its stipend could support us. It ended in a job offer too. Later I chose a stable software job over research or a deep-tech startup.</p>
+    <p>It was necessity, not preference. But he had already shown me how to carry it: strength isn't avoiding struggle; it's carrying it with grace.</p>
+    <p class="hand">On the rides back from our village, I would fall asleep on the back of his bike, knowing I was safe with him.</p>
+  </div></div>
+  <div class="scene" id="fieldWrap" style="height:clamp(260px,36vw,520px)"><img id="scooterI" src="chars/scooter.webp" alt="The father rides his scooter home at night; his son sleeps against his back."><canvas id="field" style="width:100%;height:100%;display:block" role="img" aria-label="A night field of tall grass bending in the wind, full of drifting fireflies under a pale moon."></canvas></div>
+</section>
+
+<!-- IV · Because of that -->
+<section class="chapter" id="ch4" data-sky="#5592c9,#d6eaf6" data-name="IV · The big machines">
+  <div class="copy">
+    <div class="col">
+      <p class="spine">Because of that, he learned to fly the big machines.</p>
+    <blockquote class="epi"><p>“Airplanes are beautiful dreams. Engineers turn dreams into reality.”</p><cite>Caproni · The Wind Rises (2013)</cite></blockquote>
+      <header class="ch-head"><span class="num" aria-hidden="true">IV</span><h2>Systems that carry other people's money and data</h2></header>
+      <p>A chemical engineer moving into software has to earn every step. One project led to an internship, then another. Along the way I settled on three rules: design for failure, measure before optimizing, scale deliberately.</p>
+    </div>
+    <div class="logbook" role="list" aria-label="Career logbook">
+      <div class="entry" role="listitem"><span class="where">now</span><div><h3>Microsoft</h3><p>Software Engineer II, building cloud infrastructure at scale.</p></div></div>
+      <div class="entry" role="listitem"><span class="where">AWS</span><div><h3>OpenSearch Serverless</h3>
+        <p>A peer referred me to the team building OpenSearch Serverless, a brand-new AWS service. I worked on the indexing write path and built the Index Rollover API that lets ingestion scale automatically. Before launch, I noticed the system called the metadata service once per shard instead of batching. Fixing it meant a week's delay before a hard deadline. My manager was unsure, so I took it to the Principal Engineer, who approved it.</p>
+        <p>After launch, my manager moved to another team and asked me to come along. It could have fast-tracked my promotion. I stayed with a five-person team to stabilise what we had launched. After a quarter of on-call rotations and fixes, availability in major US regions rose from dips as low as 40% to over 90%. The promotion came a few quarters later, backed by a Principal Engineer.</p>
+        <p>One evening while I was on leave, my manager called: a junior engineer was stuck, and a regional launch was due the next working day. I traced a stuck disk creation to a network issue, and with the network team's on-call engineer we fixed it past midnight. The launch went ahead on time.</p>
+        <p>Also in the log: a cost anomaly fixed that cut customer billing by $8.7M, a $2M/month customer onboarded, 300+ code reviews, and an intern I mentored who recovered from an accidental push to the main branch and earned a full-time offer.</p></div></div>
+      <div class="entry" role="listitem"><span class="where">Razorpay</span><div><h3>Startup speed</h3><p>I wanted to feel how fast a startup moves. I launched Advance Tax Payments in three months to meet a quarterly tax deadline; it processed ₹6.4 Cr in its first month. I owned the payout-links service and fixed a state-inconsistency bug that could have cost ₹4 Cr.</p></div></div>
+      <div class="entry" role="listitem"><span class="where">Sapient</span><div><h3>First job</h3><p>My first full-time role, offered after my internship there, where I had won the Learning Mindset award. I built a GraphQL layer that made a financial-wellness platform more responsive.</p></div></div>
+    </div>
+  </div>
+  <svg class="scene" id="scene4" viewBox="0 0 1440 300" preserveAspectRatio="xMidYMax slice" style="height:clamp(160px,20vw,300px)" role="img" aria-label="A plane climbs over a sea of clouds.">
+    <g id="cloudsea" fill="#fbf6ea" opacity=".95"></g>
+    <g id="plane4"><path d="M0 0 h70 l14 -10 h8 l-8 16 h-84z M26 0 l14 -22 h9 l-5 22 M10 6 l-8 8 h6 l10 -8" fill="#fbf6ea" stroke="#2b2520" stroke-width="1.5"/></g>
+  </svg>
+</section>
+
+<!-- V · Because of that -->
+<section class="chapter night" id="ch5" data-sky="#3b3142,#d48a5c" data-name="V · The workshop">
+  <div class="copy">
+    <div class="col">
+      <p class="spine">Because of that, he started building his own.</p>
+    <blockquote class="epi"><p>“A pig's gotta fly.”</p><cite>Porco · Porco Rosso (1992)</cite></blockquote>
+      <header class="ch-head"><span class="num" aria-hidden="true">V</span><h2>What I build after the day job</h2></header>
+      <p>The hangar light stays on late. These are tools I build in my own time. All open source.</p>
+    </div>
+    <div class="wall">
+      <a class="print" href="https://whoopconnector.com/" target="_blank" rel="noopener">
+        <h3>WHOOP Connector</h3>
+        <p>Lets your AI assistant read your WHOOP recovery, sleep and strain. Read-only, your tokens stay on your machine, and you're compared against your own baseline, not a population average.</p>
+        <span class="spec">7,946 downloads · 166 stars · 16 tools</span><span class="go">open blueprint →</span>
+      </a>
+      <a class="print" href="https://backendpro.cc/" target="_blank" rel="noopener">
+        <h3>Backend Pro Max</h3>
+        <p>A staff engineer in a box: 685 backend and distributed-systems concepts across 35 domains, each with a source, searchable by Claude, Cursor or Copilot before they design.</p>
+        <span class="spec">685 concepts · 35 domains · 652 tests</span><span class="go">open blueprint →</span>
+      </a>
+      <a class="print" href="https://www.rigspark.si/" target="_blank" rel="noopener">
+        <h3>RigSpark</h3>
+        <p>Tells you which local AI models your machine can actually run before you download them: yes, slow or no, with estimated tokens per second. The advice never touches the network.</p>
+        <span class="spec">69 models · 4 runtimes · 0 network calls</span><span class="go">open blueprint →</span>
+      </a>
+    </div>
+  </div>
+  <svg class="scene" id="scene5" viewBox="0 0 1440 360" preserveAspectRatio="xMidYMax slice" role="img" aria-label="A workshop hangar glowing at dusk, a lamp flickering over the workbench.">
+    <path d="M140 360 V170 Q720 -20 1300 170 V360Z" fill="#2c2430"/>
+    <path d="M210 360 V200 Q720 40 1230 200 V360Z" fill="#e2a066"/>
+    <circle id="glow5" cx="720" cy="150" r="170" fill="#f8d98a" opacity=".35"/>
+    <path d="M720 40 V110" stroke="#2c2430" stroke-width="3"/><path d="M700 110 h40 l-10 18 h-20z" fill="#2c2430"/>
+    <g id="motes" fill="#fff6d8"></g>
+    <rect x="360" y="300" width="720" height="14" fill="#5a3f30"/><rect x="380" y="314" width="10" height="46" fill="#5a3f30"/><rect x="1050" y="314" width="10" height="46" fill="#5a3f30"/>
+    <g stroke="#2c2430" stroke-width="2.5" fill="none"><path d="M480 300 v-36 h70 v36 M640 300 l22 -44 l34 44 M590 262 h26"/></g>
+  </svg>
+</section>
+
+<!-- VI · Until finally -->
+<section class="chapter night" id="ch6" data-sky="#26355a,#8d9ec4" data-name="VI · Deliveries">
+  <div class="copy">
+    <div class="col">
+      <p class="spine">Until finally, he was the one drawing the stars.</p>
+    <blockquote class="epi"><p>“We can fly with our spirit.”</p><cite>Kiki · Kiki's Delivery Service (1989)</cite></blockquote>
+      <header class="ch-head"><span class="num" aria-hidden="true">VI</span><h2>Passing the star forward</h2></header>
+      <p>That star has long faded from my cheek, but its lesson hasn't: the right encouragement at the right moment can rewrite someone's future.</p>
+      <p>A friend from my internship had a job offer but wanted something better, and was afraid to let it go. I reminded him every day what he was capable of. He turned the offer down and got Uber on day one of campus placements.</p>
+      <p>My younger brother had been barely passing for years, sometimes on grace marks. We studied together, focusing on steady improvement rather than grades. He passed tenth grade with 87%.</p>
+      <p>Since 2021 I've given free one-on-one calls to university students finding their way into software, and I write on LinkedIn about non-linear careers.</p>
+      <p>And I've gone back to my first love. On <a href="https://www.youtube.com/@AskEuler" target="_blank" rel="noopener">Ask Euler</a> I take one Project Euler problem at a time, show the naive approach, then the trick that makes it run instantly. The boy who filled registers with maths now teaches it.</p>
+    </div>
+    <div class="cards">
+      <figure class="study"><img src="chars/study.webp" alt="A young man helps his younger brother with maths at a lamp-lit table while a small Pomeranian watches from a chair." width="900" height="647"></figure>
+      <div class="card"><b>20+</b><span>free mentoring calls</span></div>
+      <div class="card"><b>13k</b><span>followers on LinkedIn</span></div>
+      <div class="card"><b>1</b><span>course opened to every branch</span></div>
+      <a class="card" href="https://www.youtube.com/@AskEuler" target="_blank" rel="noopener"><b>∑</b><span>one Euler problem, explained</span></a>
+    </div>
+  </div>
+  <svg class="scene" id="scene6" viewBox="0 0 1440 360" preserveAspectRatio="xMidYMax slice" role="img" aria-label="Letters drift on the evening wind over dark rooftops.">
+    <g id="envs"></g>
+    <g id="roofs6"></g>
+  </svg>
+</section>
+
+<!-- EPILOGUE · And every day since -->
+<section class="chapter" id="epilogue" data-sky="#f4b487,#fde8cc" data-name="Epilogue">
+  <div class="copy"><div class="col center">
+    <p class="spine">And every day since, the wind keeps rising.</p>
+    <p class="quote">“Le vent se lève! … il faut tenter de vivre.”</p>
+    <p class="aside" style="max-width:none">Paul Valéry, 1920 · the line that opens The Wind Rises (2013) · “The wind is rising; we must try to live.”</p>
+    <p class="turn">The boy the class laughed at now builds systems other people rely on, and tells students their dreams aren't silly either. The star faded. The kite is still up.</p>
+    <p>When life feels overwhelming, I go to Rameshwaram and spend hours in Dr. Kalam's childhood home, now a museum. He grew up on that small island and read more than a thousand books. Then I come back and build the next thing.</p>
+    <p class="hand">My grandmother's rule still guides me: win one day at a time.</p>
+    <p>Still on the list: an Ironman, a week of books and cafés in Edinburgh, whales in Antarctica, and time to sketch again, just for love.</p>
+    <h2 style="margin-top:.4em">Say hello</h2>
+    <div class="links">
+      <span class="mail" id="email">shashank.swe.2020@gmail.com</span>
+      <button class="linkbtn" id="copy" type="button">copy</button>
+      <a href="https://www.linkedin.com/in/shashank-mishra-015a2b116/" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="https://github.com/shashankswe2020-ux" target="_blank" rel="noopener">GitHub</a>
+      <a href="https://www.youtube.com/@AskEuler" target="_blank" rel="noopener">Ask Euler</a>
+    </div>
+  </div></div>
+  <svg class="scene" id="sceneE" viewBox="0 0 1440 420" preserveAspectRatio="xMidYMax slice" role="img" aria-label="Sunrise over the sea, a temple tower on the shore, and the kite, small now, far over the water.">
+    <circle cx="720" cy="300" r="120" fill="#f7cf8a"/>
+    <path id="seaE1" fill="#3d7f94" opacity=".85"/>
+    <path id="seaE2" fill="#2c6c84" opacity=".8"/>
+    <path d="M200 300 h120 l-8 -22 h-104z M216 278 l10 -30 h68 l10 30z M230 248 l10 -28 h40 l10 28z M244 220 l8 -22 h20 l8 22z" fill="#7a5a43"/>
+    <path d="M0 372 Q360 360 720 376 T1440 368 V420 H0Z" fill="#e3c99b"/>
+    <path id="stringE" fill="none" stroke="#2b2520" stroke-width="1" opacity=".55"/>
+    <image href="chars/shore.webp" x="820" y="205" width="200" height="217"><title>The grown boy flies a kite on the shore with his two dogs</title></image>
+    <g id="kiteE"><path id="tailE" fill="none" stroke="#c4673a" stroke-width="1.6"/><image href="tex/kite.webp" x="-16" y="-22" width="32" height="45"/></g>
+  </svg>
+</section>
+</main>
+
+<audio id="music" src="audio/score.mp3" loop preload="none"></audio>
+<button class="record" id="rec" type="button" aria-pressed="false" aria-label="Play music">
+  <span id="recLabel">play the music</span>
+  <svg viewBox="0 0 48 48" aria-hidden="true"><circle cx="24" cy="24" r="22" fill="#2b2520"/><circle cx="24" cy="24" r="17" fill="none" stroke="#4a403a" stroke-width="1"/><circle cx="24" cy="24" r="13" fill="none" stroke="#4a403a" stroke-width="1"/><circle cx="24" cy="24" r="7" fill="#c4673a"/><circle cx="24" cy="24" r="1.6" fill="#f7f0df"/><path d="M10 16 a16 16 0 0 1 8 -6" stroke="#6a5e55" stroke-width="1.4" fill="none" stroke-linecap="round"/></svg>
+</button>
+<footer>shashankmishra.bio · drawn, written and engineered by hand</footer>
+
+<script>
+(function(){
+const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+const NS='http://www.w3.org/2000/svg';
+const el=(t,a,p)=>{const e=document.createElementNS(NS,t);for(const k in a)e.setAttribute(k,a[k]);if(p)p.appendChild(e);return e};
+const $=id=>document.getElementById(id);
+let seed=7;const rnd=()=>{seed=(seed*9301+49297)%233280;return seed/233280};
+
+/* ---------- static painting ---------- */
+function roofs(g,base,h,fill,op){let x=-10;while(x<1450){const w=50+rnd()*110,hh=h*(.35+rnd()*.8),peak=rnd()>.72;
+  el('path',{d:`M${x} 900 V${base-hh} ${peak?`L${x+w/2} ${base-hh-20}`:''} L${x+w-6} ${base-hh+(rnd()*6-3)} V900Z`,fill,opacity:op},g);
+  if(rnd()>.65)el('rect',{x:x+12,y:base-hh-22,width:20+rnd()*14,height:22,rx:3,fill,opacity:op},g);x+=w;}}
+roofs($('roofsP'),600,150,'#8a6a52',.92); roofs($('roofs6'),300,120,'#1d2640',1);
+for(let x=0;x<1440;x+=130)el('path',{d:`M${x} 352 Q${x+65} 450 ${x+130} 352`},$('arches'));
+const tr=$('train');const wins=[];
+for(let i=0;i<3;i++){el('rect',{x:110+i*160,y:276,width:150,height:54,rx:6,fill:'#3a363c'},tr);for(let j=0;j<6;j++)wins.push(el('rect',{x:122+i*160+j*22,y:288,width:14,height:12,rx:2,fill:'#f2df78'},tr))}
+el('path',{d:'M0 330 V286 q0 -12 12 -12 h60 q32 0 40 56Z',fill:'#3a363c'},tr);el('rect',{x:22,y:246,width:16,height:30,fill:'#3a363c'},tr);
+const palms=[];[[1040,330,120],[1100,320,140],[1160,334,110]].forEach(([x,y,h])=>{const g=el('g',{},$('palms'));el('path',{d:`M${x} ${y} q8 -${h/2} 2 -${h}`},g);const top=el('g',{},g);for(let a=-2;a<=2;a++)el('path',{d:`M0 0 q${a*16} -14 ${a*34} 10`},top);palms.push({top,x:x+2,y:y-h})});
+for(let x=-40;x<1500;x+=64)el('circle',{cx:x,cy:200+((x*37)%40),r:46+((x*29+3000)%44)},$('cloudsea'));el('rect',{x:0,y:220,width:1440,height:80},$('cloudsea'));
+const wl=[];for(let i=0;i<5;i++)wl.push({p:el('path',{},$('windP')),y:120+i*70,o:rnd()*1700,s:.6+rnd()*.8});
+const puffs=[];for(let i=0;i<16;i++)puffs.push({c:el('circle',{r:0,opacity:0},$('smoke')),age:i/16});
+const motes=[];for(let i=0;i<22;i++)motes.push({c:el('circle',{r:1.2+rnd()*1.6},$('motes')),x:560+rnd()*320,y:120+rnd()*170,p:rnd()*6});
+const envs=[];for(let i=0;i<5;i++){const g=el('g',{},$('envs'));const inner=el('g',{},g);el('rect',{x:-23,y:-15,width:46,height:30,fill:'#f3ead6',stroke:'#2b2520','stroke-width':1},inner);el('path',{d:'M-23 -15 L0 2 L23 -15',fill:'none',stroke:'#2b2520','stroke-width':1},inner);envs.push({g,inner,x:rnd()*1440,y:50+rnd()*150,p:rnd()*6})}
+const cl=$('clouds'),clouds=[];
+['cloud1','cloud2','cloud3','cloud2','cloud1','cloud3'].forEach(n=>{const im=new Image();im.src=`tex/${n}.webp`;im.alt='';const w=220+rnd()*260;im.style.width=w+'px';cl.appendChild(im);clouds.push({im,w,x:rnd()*innerWidth,y:5+rnd()*70,depth:.3+rnd()*.7})});
+
+/* ---------- one wind for everything (blows left → right) ---------- */
+const W={t:0,boost:0};let lastY=scrollY;
+function wind(t){if(reduce)return .55;return Math.max(.12,.55+.22*Math.sin(t*.31)+.14*Math.sin(t*.83+1)+.09*Math.sin(t*1.7+2)+.06*Math.sin(t*3.1)+W.boost)}
+
+/* ---------- kite rig: faces into the wind, tail streams downwind ---------- */
+const anchor={x:577,y:362},N=16,SEG=15,rope=[];let kp={x:1000,y:200};
+for(let i=0;i<N;i++)rope.push({x:kp.x,y:kp.y+i*SEG,px:kp.x,py:kp.y+i*SEG});
+const bows=[];for(let i=3;i<N;i+=4)bows.push({i,e:el('path',{d:'M-7 -5 L7 0 L-7 5 L-3 0Z'},$('bows'))});
+function kiteStep(t,w,dt){
+  const L=430+60*Math.min(w,1.3),elev=(26+22*Math.min(w,1.3))*Math.PI/180+.05*Math.sin(t*1.3)+.03*Math.sin(t*2.9);
+  kp={x:anchor.x+L*Math.cos(elev),y:anchor.y-L*Math.sin(elev)};
+  const pitch=-(12+14*Math.min(w,1.3))+6*Math.sin(t*1.9)+3*Math.sin(t*4.3);
+  $('boyP').setAttribute('transform',`rotate(${(Math.sin(t*1.7)*.6*w).toFixed(2)} 555 566)`);
+  $('kite').setAttribute('transform',`translate(${kp.x.toFixed(1)} ${kp.y.toFixed(1)}) rotate(${pitch.toFixed(2)})`);
+  const mx=(anchor.x+kp.x)/2,my=(anchor.y+kp.y)/2,sag=Math.max(8,150*(1.25-w));
+  $('string').setAttribute('d',`M${anchor.x} ${anchor.y} Q${(mx+sag*.35).toFixed(1)} ${(my+sag).toFixed(1)} ${kp.x.toFixed(1)} ${(kp.y+8).toFixed(1)}`);
+  const a=pitch*Math.PI/180;rope[0].x=kp.x+Math.sin(-a)*-84;rope[0].y=kp.y+Math.cos(a)*84;
+  const s=dt*60;
+  for(let i=1;i<N;i++){const p=rope[i],vx=(p.x-p.px)*.93,vy=(p.y-p.py)*.93;p.px=p.x;p.py=p.y;
+    p.x+=vx+(w*1.0+.12)*s+Math.sin(t*7+i*.8)*.35*w*s;p.y+=vy+.3*s+Math.cos(t*6+i*.9)*.55*w*s;}
+  for(let k=0;k<4;k++)for(let i=1;i<N;i++){const q=rope[i-1],b=rope[i],dx=b.x-q.x,dy=b.y-q.y,d=Math.hypot(dx,dy)||1,f=(d-SEG)/d;b.x-=dx*f;b.y-=dy*f;}
+  let d=`M${rope[0].x.toFixed(1)} ${rope[0].y.toFixed(1)}`;for(let i=1;i<N-1;i++){d+=` Q${rope[i].x.toFixed(1)} ${rope[i].y.toFixed(1)} ${((rope[i].x+rope[i+1].x)/2).toFixed(1)} ${((rope[i].y+rope[i+1].y)/2).toFixed(1)}`}
+  $('tail').setAttribute('d',d);
+  bows.forEach(b=>{const p=rope[b.i],q=rope[b.i-1],ang=Math.atan2(p.y-q.y,p.x-q.x)*180/Math.PI+Math.sin(t*12+b.i)*25*w;b.e.setAttribute('transform',`translate(${p.x.toFixed(1)} ${p.y.toFixed(1)}) rotate(${ang.toFixed(1)})`)});
+  wl.forEach(l=>{l.o=(l.o+w*l.s*dt*260)%1700;const x=l.o-200;l.p.setAttribute('d',`M${x.toFixed(1)} ${l.y} q60 -14 120 0 t120 0`);l.p.setAttribute('opacity',(.2+.5*Math.min(1,w)).toFixed(2))});
+}
+
+/* ---------- other scenes ---------- */
+let trainX=950;
+function scene1(t,w,dt){fatherStep(t,w,dt);trainX-=dt*70;if(trainX<-700)trainX=1500;$('train').setAttribute('transform',`translate(${trainX.toFixed(1)} 0)`);
+  wins.forEach((r,i)=>r.setAttribute('opacity',(.75+.25*Math.sin(t*9+i*1.7)).toFixed(2)));
+  puffs.forEach(p=>{p.age+=dt*.45;if(p.age>1)p.age-=1;const a=p.age,x=trainX+30+a*(160+260*w),y=244-a*(110-40*Math.min(w,1))+Math.sin(t*2+a*6)*6;
+    p.c.setAttribute('cx',x.toFixed(1));p.c.setAttribute('cy',y.toFixed(1));p.c.setAttribute('r',(8+a*34).toFixed(1));p.c.setAttribute('opacity',(.75*(1-a)).toFixed(2))});}
+function wave(id,base,amp,k,sp,t,w,h){let d=`M0 ${h}`;for(let x=0;x<=1440;x+=24){const y=base+amp*(1+w*.6)*Math.sin(x*k+t*sp)+amp*.4*Math.sin(x*k*2.3-t*sp*1.4);d+=` L${x} ${y.toFixed(1)}`}$(id).setAttribute('d',d+` L1440 ${h}Z`)}
+let planeX=-200;
+function scene2(t,w,dt){wave('sea1',340,5,.012,1.2,t,w,520);wave('sea2',390,6,.009,-1.6,t,w,520);
+  palms.forEach((p,i)=>p.top.setAttribute('transform',`translate(${p.x} ${p.y}) rotate(${(w*16+Math.sin(t*2.2+i)*6*w).toFixed(1)})`));
+  planeX+=dt*(90+60*w);if(planeX>1650)planeX=-300;
+  $('plane2').setAttribute('transform',`translate(${planeX.toFixed(1)} ${(110+Math.sin(t*1.6)*8*w).toFixed(1)}) rotate(${(Math.sin(t*1.6+1)*4*w).toFixed(2)})`);
+  $('trail2').setAttribute('stroke-dashoffset',(t*40).toFixed(1));}
+let fx=260;
+function fatherStep(t,w,dt){fx+=dt*38;if(fx>1500)fx=-260;$('fatherI').setAttribute('x',fx.toFixed(1));$('fatherI').setAttribute('y',(300-Math.abs(Math.sin(t*5.2))*3).toFixed(1));}
+let sx=-.35;
+function scooterStep(t,w,dt){sx+=dt*.035;if(sx>1.1)sx=-.4;const im=$('scooterI');im.style.left=(sx*100).toFixed(2)+'%';im.style.transform=`translateY(${(Math.sin(t*9)*1.2+Math.sin(t*2.3)*1.5).toFixed(2)}px) rotate(${(Math.sin(t*2.3)*.4).toFixed(2)}deg)`;}
+let p4=-200;function scene4(t,w,dt){p4+=dt*(60+40*w);if(p4>1700)p4=-200;$('plane4').setAttribute('transform',`translate(${p4.toFixed(1)} ${(150-p4*.05+Math.sin(t*1.4)*6*w).toFixed(1)}) rotate(${(-4+Math.sin(t*1.4+1)*3*w).toFixed(2)})`)}
+function scene5(t,w,dt){$('glow5').setAttribute('opacity',(.3+.07*Math.sin(t*13)+.04*Math.sin(t*31)+.04*(Math.random()-.5)).toFixed(3));
+  motes.forEach(m=>{m.x+=dt*(8+w*14);m.y+=Math.sin(t+m.p)*.15;if(m.x>900)m.x=560;m.c.setAttribute('cx',m.x.toFixed(1));m.c.setAttribute('cy',m.y.toFixed(1));m.c.setAttribute('opacity',(.35+.35*Math.sin(t*2+m.p)).toFixed(2))})}
+function scene6(t,w,dt){envs.forEach(e=>{e.x+=dt*(40+90*w);if(e.x>1520)e.x=-60;e.g.setAttribute('transform',`translate(${e.x.toFixed(1)} ${(e.y+Math.sin(t*1.1+e.p)*16*w).toFixed(1)})`);e.inner.setAttribute('transform',`rotate(${(Math.sin(t*2.4+e.p)*22*w).toFixed(1)}) scale(1 ${(.75+.25*Math.cos(t*3+e.p)).toFixed(2)})`)})}
+function sceneE(t,w,dt){wave('seaE1',300,4,.011,.9,t,w,420);wave('seaE2',330,5,.008,-1.2,t,w,420);
+  const kx=1170+Math.sin(t*.7)*16*w,ky=70+Math.sin(t*1.3)*9*w-w*10;$('kiteE').setAttribute('transform',`translate(${kx.toFixed(1)} ${ky.toFixed(1)}) rotate(${(-18-10*w).toFixed(1)})`);$('stringE').setAttribute('d',`M975 234 Q${(1075+40*(1.2-w)).toFixed(1)} ${(170+60*(1.2-w)).toFixed(1)} ${kx.toFixed(1)} ${(ky+12).toFixed(1)}`);
+  let d='M0 22';for(let i=1;i<10;i++)d+=` L${(i*8*(.6+w*.5)).toFixed(1)} ${(22+i*4+Math.sin(t*6+i)*4*w).toFixed(1)}`;$('tailE').setAttribute('d',d);}
+
+/* fireflies + grass on canvas */
+const cv=$('field'),cx=cv.getContext('2d');let FW=0,FH=0,DPR=1,blades=[],flies=[];
+function sizeField(){const r=cv.getBoundingClientRect();DPR=Math.min(2,devicePixelRatio||1);cv.width=Math.max(1,r.width*DPR);cv.height=Math.max(1,r.height*DPR);FW=cv.width;FH=cv.height;
+  blades=[];const n=Math.round(r.width/4);for(let i=0;i<n;i++)blades.push({x:i/n*FW+Math.random()*4,h:FH*(.22+Math.random()*.4),c:Math.random()});
+  flies=Array.from({length:Math.max(12,Math.round(r.width/24))},()=>({x:Math.random()*FW,y:FH*(.15+Math.random()*.75),p:Math.random()*6.28}));}
+function field(t,w,dt){scooterStep(t,w,dt);cx.clearRect(0,0,FW,FH);
+  cx.fillStyle='#e9e2c8';cx.globalAlpha=.85;cx.beginPath();cx.arc(FW*.8,FH*.18,FH*.08,0,7);cx.fill();cx.globalAlpha=1;
+  cx.fillStyle='#16251e';cx.beginPath();cx.moveTo(0,FH);for(let x=0;x<=FW;x+=FW/40)cx.lineTo(x,FH*.62+Math.sin(x/FW*6)*FH*.03);cx.lineTo(FW,FH);cx.fill();
+  cx.lineWidth=1.6*DPR;cx.lineCap='round';
+  for(const b of blades){const bend=(w*.55+.12)*b.h*.5*(1+.35*Math.sin(t*2.2-b.x/FW*9));cx.strokeStyle=b.c>.5?'#203529':'#2a4334';cx.beginPath();cx.moveTo(b.x,FH);cx.quadraticCurveTo(b.x+bend*.2,FH-b.h*.55,b.x+bend,FH-b.h);cx.stroke();}
+  for(const f of flies){f.p+=dt*1.2;f.x+=(w*18+Math.cos(f.p)*10)*dt*DPR;f.y+=Math.sin(f.p*1.3)*8*dt*DPR;if(f.x>FW+20)f.x=-20;
+    const a=.3+.7*Math.max(0,Math.sin(f.p*2.1)),r=9*DPR,g=cx.createRadialGradient(f.x,f.y,0,f.x,f.y,r);g.addColorStop(0,`rgba(242,223,120,${a.toFixed(2)})`);g.addColorStop(1,'rgba(242,223,120,0)');cx.fillStyle=g;cx.beginPath();cx.arc(f.x,f.y,r,0,7);cx.fill();}}
+sizeField();addEventListener('resize',sizeField);
+
+/* ---------- chapters, sky, flight path ---------- */
+const secs=[...document.querySelectorAll('.chapter')],track=$('track'),plane=$('plane');
+const dots=secs.map((s,i)=>{const a=document.createElement('a');a.className='dot';a.href='#'+s.id;a.setAttribute('aria-label',s.dataset.name);a.title=s.dataset.name;a.style.left=(i/(secs.length-1)*100)+'%';track.appendChild(a);return a});
+const hex=h=>[1,3,5].map(i=>parseInt(h.slice(i,i+2),16)),mix=(a,b,t)=>'rgb('+a.map((v,i)=>Math.round(v+(b[i]-v)*t)).join(',')+')';
+const pals=secs.map(s=>s.dataset.sky.split(',').map(hex)),root=document.documentElement;let current=0;
+function onScroll(){const mid=innerHeight*.5;let idx=0,t=0;secs.forEach((s,i)=>{const r=s.getBoundingClientRect();if(r.top<=mid){idx=i;t=Math.min(1,Math.max(0,(mid-r.top)/r.height))}});
+  const a=pals[idx],b=pals[Math.min(idx+1,pals.length-1)],k=Math.max(0,(t-.65)/.35);
+  root.style.setProperty('--sky-top',mix(a[0],b[0],k));root.style.setProperty('--sky-bot',mix(a[1],b[1],k));
+  dots.forEach((d,i)=>d.setAttribute('aria-current',i===idx));root.style.setProperty('--cloud-op',secs[idx].classList.contains('night')?'.14':'.6');plane.style.left=((idx+t)/(secs.length-1)*100)+'%';current=idx;
+  const dy=Math.abs(scrollY-lastY);lastY=scrollY;W.boost=Math.min(.7,W.boost+dy*.0015);}
+addEventListener('scroll',onScroll,{passive:true});addEventListener('resize',onScroll);onScroll();
+
+/* only animate what is on screen */
+const runners={sceneP:kiteStep,scene1,scene2,scene4,scene5,scene6,sceneE,fieldWrap:field};
+const visible=new Set(Object.keys(runners).filter(id=>{const r=$(id).getBoundingClientRect();return r.bottom>-100&&r.top<innerHeight+100}));
+const io=new IntersectionObserver(es=>es.forEach(e=>e.isIntersecting?visible.add(e.target.id):visible.delete(e.target.id)),{rootMargin:'100px'});
+Object.keys(runners).forEach(id=>io.observe($(id)));
+
+for(let i=0;i<150;i++)kiteStep(i*.016,.55,.016);Object.keys(runners).forEach(k=>{if(k!=='sceneP')runners[k](1,.55,.016)});
+let last=performance.now();
+function frame(now){const dt=Math.min(.05,Math.max(0,(now-last)/1000));last=now;W.t+=dt;W.boost*=Math.pow(.25,dt);const w=wind(W.t);
+  root.style.setProperty('--wind',(w-.55).toFixed(3));
+  for(const id of visible)runners[id](W.t,w,dt);
+  clouds.forEach(c=>{c.x+=dt*(6+w*22)*c.depth;if(c.x>innerWidth+60)c.x=-c.w-60;c.im.style.transform=`translate(${c.x.toFixed(1)}px,${(c.y*innerHeight/100-scrollY*.06*c.depth).toFixed(1)}px)`});
+  if(!reduce)requestAnimationFrame(frame);}
+if(reduce){frame(performance.now());}
+else requestAnimationFrame(frame);
+
+/* ---------- music ---------- */
+const au=$('music'),rb=$('rec'),rl=$('recLabel');let target=0,ft;const base=.55;
+const night=()=>secs[current].classList.contains('night')?.6:1;
+function fade(){clearInterval(ft);ft=setInterval(()=>{const d=target-au.volume;if(Math.abs(d)<.02){au.volume=target;clearInterval(ft);if(target===0)au.pause();return}au.volume=Math.min(1,Math.max(0,au.volume+Math.sign(d)*.02))},40)}
+rb.addEventListener('click',()=>{const on=rb.getAttribute('aria-pressed')!=='true';rb.setAttribute('aria-pressed',on);rl.textContent=on?'pause the music':'play the music';rb.setAttribute('aria-label',on?'Pause music':'Play music');
+  if(on){au.volume=0;au.play().then(()=>{target=base*night();fade()}).catch(()=>{rb.setAttribute('aria-pressed','false');rl.textContent='play the music'})}else{target=0;fade()}});
+addEventListener('scroll',()=>{if(rb.getAttribute('aria-pressed')==='true'){const t=base*night();if(Math.abs(t-target)>.01){target=t;fade()}}},{passive:true});
+
+/* ---------- copy email ---------- */
+$('copy').addEventListener('click',e=>{const b=e.currentTarget,t=$('email').textContent;navigator.clipboard.writeText(t).then(()=>b.textContent='copied',()=>{const r=document.createRange();r.selectNodeContents($('email'));const s=getSelection();s.removeAllRanges();s.addRange(r);b.textContent='selected'});setTimeout(()=>b.textContent='copy',2200)});
+})();
+</script>
