@@ -64,7 +64,7 @@ function scene2(t,w,dt){wave('sea1',340,5,.012,1.2,t,w,520);wave('sea2',390,6,.0
   $('plane2').setAttribute('transform',`translate(${planeX.toFixed(1)} ${(110+Math.sin(t*1.6)*8*w).toFixed(1)}) rotate(${(Math.sin(t*1.6+1)*4*w).toFixed(2)})`);
   $('trail2').setAttribute('stroke-dashoffset',(t*40).toFixed(1));}
 let fx=260;
-function fatherStep(t,w,dt){fx+=dt*38;if(fx>1500)fx=-260;$('fatherI').setAttribute('x',fx.toFixed(1));$('fatherI').setAttribute('y',(300-Math.abs(Math.sin(t*5.2))*3).toFixed(1));}
+function fatherStep(t,w,dt){fx-=dt*38;if(fx<-260)fx=1500;$('fatherI').setAttribute('x',fx.toFixed(1));$('fatherI').setAttribute('y',(300-Math.abs(Math.sin(t*5.2))*3).toFixed(1));}
 let sx=-.35;
 function scooterStep(t,w,dt){sx+=dt*.035;if(sx>1.1)sx=-.4;const im=$('scooterI');im.style.left=(sx*100).toFixed(2)+'%';im.style.transform=`translateY(${(Math.sin(t*9)*1.2+Math.sin(t*2.3)*1.5).toFixed(2)}px) rotate(${(Math.sin(t*2.3)*.4).toFixed(2)}deg)`;}
 let p4=-200;function scene4(t,w,dt){p4+=dt*(60+40*w);if(p4>1700)p4=-200;$('plane4').setAttribute('transform',`translate(${p4.toFixed(1)} ${(150-p4*.05+Math.sin(t*1.4)*6*w).toFixed(1)}) rotate(${(-4+Math.sin(t*1.4+1)*3*w).toFixed(2)})`)}

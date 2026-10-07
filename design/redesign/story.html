@@ -229,7 +229,7 @@ footer{text-align:center;padding:20px 16px 80px;font-family:var(--f-hand);font-w
     <g id="palms" stroke="#3a4f33" stroke-width="7" fill="none" stroke-linecap="round"></g>
     <path id="sea2" fill="#3f88a0" opacity=".75"/>
     <path d="M0 470 C200 420 420 430 640 500 L640 520 H0Z" fill="#e8d3a5"/>
-    <g id="plane2"><path id="trail2" d="M-10 4 h-220" stroke="#fff" stroke-width="2.5" stroke-dasharray="8 10"/><path d="M0 0 h70 l14 -10 h8 l-8 16 h-84z M26 0 l14 -22 h9 l-5 22" fill="#fbf6ea" stroke="#2b2520" stroke-width="1.5"/></g>
+    <g id="plane2"><path id="trail2" d="M-10 4 h-220" stroke="#fff" stroke-width="2.5" stroke-dasharray="8 10"/><path transform="translate(92 0) scale(-1 1)" d="M0 0 h70 l14 -10 h8 l-8 16 h-84z M26 0 l14 -22 h9 l-5 22" fill="#fbf6ea" stroke="#2b2520" stroke-width="1.5"/></g>
   </svg>
 </section>
 
@@ -269,7 +269,7 @@ footer{text-align:center;padding:20px 16px 80px;font-family:var(--f-hand);font-w
   </div>
   <svg class="scene" id="scene4" viewBox="0 0 1440 300" preserveAspectRatio="xMidYMax slice" style="height:clamp(160px,20vw,300px)" role="img" aria-label="A plane climbs over a sea of clouds.">
     <g id="cloudsea" fill="#fbf6ea" opacity=".95"></g>
-    <g id="plane4"><path d="M0 0 h70 l14 -10 h8 l-8 16 h-84z M26 0 l14 -22 h9 l-5 22 M10 6 l-8 8 h6 l10 -8" fill="#fbf6ea" stroke="#2b2520" stroke-width="1.5"/></g>
+    <g id="plane4"><path transform="translate(92 0) scale(-1 1)" d="M0 0 h70 l14 -10 h8 l-8 16 h-84z M26 0 l14 -22 h9 l-5 22 M10 6 l-8 8 h6 l10 -8" fill="#fbf6ea" stroke="#2b2520" stroke-width="1.5"/></g>
   </svg>
 </section>
 
@@ -444,7 +444,7 @@ function scene2(t,w,dt){wave('sea1',340,5,.012,1.2,t,w,520);wave('sea2',390,6,.0
   $('plane2').setAttribute('transform',`translate(${planeX.toFixed(1)} ${(110+Math.sin(t*1.6)*8*w).toFixed(1)}) rotate(${(Math.sin(t*1.6+1)*4*w).toFixed(2)})`);
   $('trail2').setAttribute('stroke-dashoffset',(t*40).toFixed(1));}
 let fx=260;
-function fatherStep(t,w,dt){fx+=dt*38;if(fx>1500)fx=-260;$('fatherI').setAttribute('x',fx.toFixed(1));$('fatherI').setAttribute('y',(300-Math.abs(Math.sin(t*5.2))*3).toFixed(1));}
+function fatherStep(t,w,dt){fx-=dt*38;if(fx<-260)fx=1500;$('fatherI').setAttribute('x',fx.toFixed(1));$('fatherI').setAttribute('y',(300-Math.abs(Math.sin(t*5.2))*3).toFixed(1));}
 let sx=-.35;
 function scooterStep(t,w,dt){sx+=dt*.035;if(sx>1.1)sx=-.4;const im=$('scooterI');im.style.left=(sx*100).toFixed(2)+'%';im.style.transform=`translateY(${(Math.sin(t*9)*1.2+Math.sin(t*2.3)*1.5).toFixed(2)}px) rotate(${(Math.sin(t*2.3)*.4).toFixed(2)}deg)`;}
 let p4=-200;function scene4(t,w,dt){p4+=dt*(60+40*w);if(p4>1700)p4=-200;$('plane4').setAttribute('transform',`translate(${p4.toFixed(1)} ${(150-p4*.05+Math.sin(t*1.4)*6*w).toFixed(1)}) rotate(${(-4+Math.sin(t*1.4+1)*3*w).toFixed(2)})`)}
