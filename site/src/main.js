@@ -93,10 +93,11 @@ sizeField();addEventListener('resize',sizeField);
 const secs=[...document.querySelectorAll('.chapter')],track=$('track'),plane=$('plane');
 const dots=secs.map((s,i)=>{const a=document.createElement('a');a.className='dot';a.href='#'+s.id;a.setAttribute('aria-label',s.dataset.name);a.title=s.dataset.name;a.style.left=(i/(secs.length-1)*100)+'%';track.appendChild(a);return a});
 const hex=h=>[1,3,5].map(i=>parseInt(h.slice(i,i+2),16)),mix=(a,b,t)=>'rgb('+a.map((v,i)=>Math.round(v+(b[i]-v)*t)).join(',')+')';
+const themeMeta=document.querySelector('meta[name="theme-color"]');
 const pals=secs.map(s=>s.dataset.sky.split(',').map(hex)),root=document.documentElement;let current=0;
 function onScroll(){const mid=innerHeight*.5;let idx=0,t=0;secs.forEach((s,i)=>{const r=s.getBoundingClientRect();if(r.top<=mid){idx=i;t=Math.min(1,Math.max(0,(mid-r.top)/r.height))}});
   const a=pals[idx],b=pals[Math.min(idx+1,pals.length-1)],k=Math.max(0,(t-.65)/.35);
-  root.style.setProperty('--sky-top',mix(a[0],b[0],k));root.style.setProperty('--sky-bot',mix(a[1],b[1],k));
+  const top=mix(a[0],b[0],k);root.style.setProperty('--sky-top',top);if(themeMeta)themeMeta.content=top;root.style.setProperty('--sky-bot',mix(a[1],b[1],k));
   dots.forEach((d,i)=>d.setAttribute('aria-current',i===idx));root.style.setProperty('--cloud-op',secs[idx].classList.contains('night')?'.14':'.6');plane.style.left=((idx+t)/(secs.length-1)*100)+'%';current=idx;
   const dy=Math.abs(scrollY-lastY);lastY=scrollY;W.boost=Math.min(.7,W.boost+dy*.0015);}
 addEventListener('scroll',onScroll,{passive:true});addEventListener('resize',onScroll);onScroll();
