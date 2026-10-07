@@ -91,6 +91,7 @@ h2{font-size:var(--s-2)}
 .il-text{display:grid;gap:.7em;min-width:0}
 .il-when{font-family:var(--f-hand);font-weight:300;color:var(--ink-soft);font-size:.95rem}
 .il-diary{font-family:var(--f-hand);color:var(--ember);font-size:1.12rem;line-height:1.45;border-left:2px solid rgba(196,103,58,.4);padding-left:12px}
+.il-japan{font-family:var(--f-hand);color:var(--ink-soft);font-size:1.05rem;line-height:1.45}
 .il-pass{width:240px;grid-template-columns:1fr 64px;transform:rotate(4deg);margin:18px 0 0}
 .il-pass .route{font-size:1.6rem}
 .il-pass .stub{font-size:1.05rem}
