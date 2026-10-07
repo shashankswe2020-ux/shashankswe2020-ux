@@ -100,18 +100,18 @@ h2{font-size:var(--s-2)}
 @media (max-width:860px){.logbook{grid-column:1 / -1;padding-right:16px;background-image:repeating-linear-gradient(180deg,transparent 0 29px,rgba(120,160,195,.35) 29px 30px)}.entry{grid-template-columns:1fr}.entry .where{text-align:left;padding:0 0 0 16px}.entry>div{padding-left:16px}}
 
 /* blueprints */
-.wall{grid-column:1 / -1;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:28px;margin-top:36px}
+.wall{grid-column:2 / span 10;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:34px 40px;margin-top:36px}
 .print{position:relative;display:flex;flex-direction:column;gap:10px;padding:26px 22px 20px;color:#e9f1f7;text-decoration:none;min-width:0;
   background-color:var(--blueprint);background-image:linear-gradient(rgba(233,241,247,.08) 1px,transparent 1px),linear-gradient(90deg,rgba(233,241,247,.08) 1px,transparent 1px);background-size:28px 28px;
   box-shadow:0 18px 30px -18px rgba(0,0,0,.7);transform:rotate(var(--r,0deg));transition:transform .3s}
-.print:nth-child(1){--r:-2.2deg}.print:nth-child(2){--r:1.4deg;margin-top:22px}.print:nth-child(3){--r:-.8deg}
+.print:nth-child(1){--r:-2.2deg}.print:nth-child(2){--r:1.4deg;margin-top:22px}.print:nth-child(3){--r:-.8deg}.print:nth-child(4){--r:1.8deg;margin-top:22px}
 .print:hover{transform:rotate(0deg) translateY(-4px)}
 .print::before{content:"";position:absolute;top:-11px;left:50%;width:76px;height:22px;margin-left:-38px;background:rgba(243,233,198,.85);transform:rotate(calc(var(--r,0deg)*-1.6))}
 .print h3{margin:0;font:400 1.75rem/1.1 var(--f-display)}
 .print p{color:#d3e2ec;font-size:1rem;max-width:none}
 .print .spec{font-family:var(--f-hand);color:var(--firefly);font-size:1rem;margin-top:auto;padding-top:8px;border-top:1px dashed rgba(233,241,247,.35)}
 .print .go{text-decoration:underline;text-underline-offset:4px}
-@media (max-width:860px){.wall{grid-template-columns:1fr;gap:34px}.print:nth-child(2){margin-top:0}}
+@media (max-width:860px){.wall{grid-column:1 / -1;grid-template-columns:1fr;gap:34px}.print:nth-child(2),.print:nth-child(4){margin-top:0}}
 
 /* postcards */
 .cards{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:22px;align-content:start;padding-top:40px}
@@ -328,6 +328,11 @@ footer{text-align:center;padding:20px 16px 80px;font-family:var(--f-hand);font-w
         <h3>RigSpark</h3>
         <p>Tells you which local AI models your machine can actually run before you download them: yes, slow or no, with estimated tokens per second. The advice never touches the network.</p>
         <span class="spec">69 models · 4 runtimes · 0 network calls</span><span class="go">open blueprint →</span>
+      </a>
+      <a class="print" href="https://chromewebstore.google.com/detail/leetcode-map/hbponnlnmcomlbplhcbhfaeckbnngdim" target="_blank" rel="noopener">
+        <h3>LeetCode Map</h3>
+        <p>When you're stuck on a LeetCode problem, it maps the 30 most similar ones: easier problems to warm up on, harder ones to level up with. Ranked by concept, not tags. No account, no data collected.</p>
+        <span class="spec">86&nbsp;active&nbsp;users · 3,900+&nbsp;problems · 30&nbsp;nearest</span><span class="go">open blueprint →</span>
       </a>
     </div>
   </div>

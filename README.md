@@ -127,6 +127,16 @@ Tells you which local AI models your machine can actually run before you downloa
 
 </td>
 </tr>
+<tr>
+<td colspan="3" valign="top">
+
+#### 📐 [LeetCode Map](https://chromewebstore.google.com/detail/leetcode-map/hbponnlnmcomlbplhcbhfaeckbnngdim)
+A Chrome extension for when you're stuck on a LeetCode problem: it maps the 30 most similar ones, easier problems to warm up on and harder ones to level up with, ranked by concept rather than tags. No account, no data collected.
+
+<sub>`86 active users · 3,900+ problems · 30 nearest`</sub>
+
+</td>
+</tr>
 </table>
 
 <details>
